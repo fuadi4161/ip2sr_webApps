@@ -553,7 +553,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Lengkapi Profil</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
@@ -574,25 +574,25 @@
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail12">Nomor Hp/Wa:</label>
-                                        <input class="form-control" id="inputEmail12" name="wa" type="number" placeholder="Enter Contact Number" />
+                                        <input class="form-control" id="inputEmail12" name="wa" type="number" placeholder="Enter Contact Number" required/>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail12">Telegram:</label>
-                                        <input class="form-control" id="inputEmail12" name="tele" type="number" placeholder="Enter Contact Number" />
+                                        <input class="form-control" id="inputEmail12" name="tele" type="number" placeholder="Enter Contact Number" required/>
                                     </div>
                                 </div>
                                 <div class="custom-separator"></div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputtext14">Bio:</label>
-                                        <input class="form-control" id="inputtext14" name="bio" type="text" placeholder="Enter contact number " /><small class="ul-form__text form-text" id="passwordHelpBlock">
+                                        <input class="form-control" id="inputtext14" name="bio" type="text" placeholder="Enter contact number " required /><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your contact
                                         </small>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail15">Tanggal Lahir:</label>
                                         <div class="input-right-icon">
-                                            <input class="form-control" id="inputEmail15" name="ttl" type="date" placeholder="Fax Number" /><span class="span-right-input-icon"></span>
+                                            <input class="form-control" id="inputEmail15" name="ttl" type="date" placeholder="Fax Number" required /><span class="span-right-input-icon"></span>
                                         </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your Fax
                                         </small>
@@ -600,7 +600,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail16">Alamat:</label>
                                         <div class="input-right-icon">
-                                            <input class="form-control" id="inputEmail16" name="alamat" type="text" placeholder="Enter your address" /><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
+                                            <input class="form-control" id="inputEmail16" name="alamat" type="text" placeholder="Enter your address" required/><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
                                         </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your address
                                         </small>
@@ -612,10 +612,10 @@
                                         <label class="ul-form__label" for="inputEmail18">Jenis Kelamin:</label>
                                         <div class="ul-form__radio-inline">
                                             <label class="ul-radio__position radio radio-primary form-check-inline">
-                                                <input type="radio" name="kelamin" value="L" /><span class="ul-form__radio-font">L</span><span class="checkmark"></span>
+                                                <input type="radio" name="kelamin" value="L" required/><span class="ul-form__radio-font">L</span><span class="checkmark"></span>
                                             </label>
                                             <label class="ul-radio__position radio radio-primary">
-                                                <input type="radio" name="kelamin" value="P" /><span class="ul-form__radio-font">P</span><span class="checkmark"></span>
+                                                <input type="radio" name="kelamin" value="P" required/><span class="ul-form__radio-font">P</span><span class="checkmark"></span>
                                             </label>
                                         </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please select user group

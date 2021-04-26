@@ -30,7 +30,7 @@ Route::get('/about', 'HomeController@about')->name('home.about');
 //             . "<b>Fuadz</b>\n"
 //             . "<b>Message: </b>\n"
 //             . "Percobaan";
- 
+
 //         Telegram::sendMessage([
 //             'chat_id' => 946271444,
 //             'parse_mode' => 'HTML',
@@ -57,7 +57,7 @@ Route::get('notifikasi', function () {
 
             "image" => 'https://i.pinimg.com/564x/ba/0b/0e/ba0b0eac27f6f88a70c084df11c52eab.jpg',
 
-            "sound"=> 'stoneSkimingDay4', // required for sound on ios
+            "sound" => 'stoneSkimingDay4', // required for sound on ios
 
         ],
 
@@ -254,7 +254,6 @@ Route::group(
 
         Route::get('/accpayment/{id}/{users}', 'Wifi\PembayaranController@update')->name('admin-wifi.accpayment');
         Route::post('/payment', 'User_wifi\UserWifiController@bayar')->name('admin-wifi.payment');
-    
     }
 );
 Route::group(

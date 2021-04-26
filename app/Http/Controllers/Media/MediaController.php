@@ -14,7 +14,8 @@ class MediaController extends Controller
      */
     public function index()
     {
-        return view('Media.index');
+
+        return view('Medias.berita');
     }
 
     /**
@@ -24,7 +25,7 @@ class MediaController extends Controller
      */
     public function berita()
     {
-        return view('Media.berita');
+        return view('Medias.berita');
     }
 
     /**
