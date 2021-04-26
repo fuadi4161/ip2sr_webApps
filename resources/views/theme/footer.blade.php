@@ -5,7 +5,7 @@
           <!-- logo -->
           <h2>
             <a class="logo text-wh" href="{{ route('home')}}">
-              <img src="web/images/logowebipsr.v2.png" width="35px" /> IP2SR OFFICIAL
+              <img src="web/images/Logowebipsr.v2.png" width="35px" /> IP2SR OFFICIAL
             </a>
           </h2>
           <!-- //logo -->
