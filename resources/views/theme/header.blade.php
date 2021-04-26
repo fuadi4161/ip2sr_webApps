@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke px-0">
             <h1> <a class="navbar-brand" href="{{ route('home')}}">
-                <img src="web/images/logowebipsr.v2.png" alt="burger logo" width="35px" /> IP2SR
+                <img src="web/images/logowebipsr.v2.png" width="35px" /> IP2SR
                 </a></h1>
             <!-- if logo is image enable this   
     <a class="navbar-brand" href="#index.html">
@@ -17,7 +17,7 @@
   
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    {{-- <li class="nav-item active">
                         <a class="nav-link" href="{{ route('home')}}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item @@about__active">
@@ -25,7 +25,7 @@
                     </li>
                     <li class="nav-item @@contact__active">
                         <a class="nav-link" href="{{ route('home.contact')}}">Contact</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown @@pages__active">
                       @auth
   
