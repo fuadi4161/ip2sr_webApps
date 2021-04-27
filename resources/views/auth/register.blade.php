@@ -11,7 +11,6 @@
     <title>Registrasi</title>
   </head>
   <body>
-      <center>
           <div class="login-div">
               <div class="logo"></div>
               <div class="title">IP2SR</div>
@@ -75,6 +74,5 @@
               </div>
             </form>
             </div>
-      </center>
   </body>
 </html>
