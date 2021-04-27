@@ -1,4 +1,4 @@
-/*.drop-zone {
+.drop-zone {
   max-width: 200px;
   height: 200px;
   padding: 25px;
@@ -57,8 +57,8 @@ html,body{
     height: 100%;
     place-items: center;
     text-align: center;
-}*/
-.drop-zone{
+}
+/* .drop-zone{
     height: 350px;
     width: 430px;
 }
@@ -131,4 +131,4 @@ html,body{
     text-transform: uppercase;
     cursor: pointer;
     background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
-}
+} */
