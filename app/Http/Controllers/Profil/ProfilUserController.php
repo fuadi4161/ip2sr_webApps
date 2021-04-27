@@ -33,54 +33,206 @@ class ProfilUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->file;
+        
         $user = User::find($id);
         $filename = $user->profile_photo;
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $filename = Auth::user()->name . '_' . time() . '.' . $file->getClientOriginalName();
-            $avatar = 'https://ip2sr.site/assets/images/avatars/' . Auth::user()->name . '_' . time() . '.' . $file->getClientOriginalName();
-            $file->move('assets/images/avatars', $filename);
-            File::delete('assets/images/avatars' . $user->dokumen);
+        if ($data == null) {
+            if ($request->password == null) {
+
+                User::where('id', $user->id)
+                    ->update([
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ]);
+                    if($request->ttl == null){
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }else{
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'tanggal_lahir' => $request->ttl,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }
+                Session::flash('berhasil', 'Profil berhasil di rubah');
+            } else {
+                User::where('id', $user->id)
+                    ->update([
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        'password' => bcrypt($request->password),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ]);
+                    if($request->ttl == null){
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }else{
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'tanggal_lahir' => $request->ttl,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }
+                Session::flash('berhasil', 'Profil berhasil di rubah');
+            }
+    
+        }else{
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $filename = Auth::user()->name . '_' . time() . '.' . $file->getClientOriginalName();
+                $avatar = 'https://ip2sr.site/assets/images/avatars/' . Auth::user()->name . '_' . time() . '.' . $file->getClientOriginalName();
+                $file->move('assets/images/avatars', $filename);
+                File::delete('assets/images/avatars' . $user->dokumen);
+            }
+
+            if ($request->password == null) {
+                $files = $request->file('file');
+                User::where('id', $user->id)
+                    ->update([
+                        'profile_photo' => $filename,
+                        'avatar' => 'https://ip2sr.site/assets/images/avatars/' . Auth::user()->name . '_' . time() . '.' . $files->getClientOriginalName(),
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ]);
+                    if($request->ttl == null){
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }else{
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'tanggal_lahir' => $request->ttl,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }
+                Session::flash('berhasil', 'Profil berhasil di rubah');
+            } else {
+                User::where('id', $user->id)
+                    ->update([
+                        'profile_photo' => $filename,
+                        'name' => $request->name,
+                        'email' => $request->email,
+                        'password' => bcrypt($request->password),
+                        'updated_at' => date('Y-m-d H:i:s'),
+                    ]);
+                    if($request->ttl == null){
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }else{
+                        DB::table('profile_users')->where('user_id', Auth::user()->id)->update([
+                            'user_id' => Auth::user()->id,
+                            'nama' => $request->namalengkap,
+                            'kontak' => $request->wa,
+                            'telegram' => $request->tele,
+                            'deskripsi' => $request->bio,
+                            'tanggal_lahir' => $request->ttl,
+                            'alamat' => $request->alamat,
+                            'jenkel' => $request->kelamin,
+                            'facebook' => $request->fb,
+                            'twitter' => $request->twit,
+                            'instagram' => $request->ins,
+                            'created_at' => date('Y-m-d H:i:s'),
+                            'updated_at' => date('Y-m-d H:i:s'),
+                        ]);
+                    }
+            }
+            Session::flash('berhasil', 'Profil berhasil di rubah');
+    
         }
-
-
-
-        if ($request->password == null) {
-            $files = $request->file('file');
-            User::where('id', $user->id)
-                ->update([
-                    'profile_photo' => $filename,
-                    'avatar' => 'https://ip2sr.site/assets/images/avatars/' . Auth::user()->name . '_' . time() . '.' . $files->getClientOriginalName(),
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ]);
-        } else {
-            User::where('id', $user->id)
-                ->update([
-                    'profile_photo' => $filename,
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'password' => bcrypt($request->password),
-                    'updated_at' => date('Y-m-d H:i:s'),
-                ]);
-        }
-
-
-
-
+        
         if ($filename) {
             Session::flash('berhasil', 'Profil berhasil di rubah');
         } else {
             Session::flash('error', 'Profil gagal di rubah');
         }
 
-        return back();
+        return back()->with( Session::flash('berhasil', 'Profil berhasil di rubah'));
     }
 
     public function detailprofil(Request $request, $id)
     {
+
         $data = DB::table('users')->where('users.id', '=', Auth::user()->id)
             ->leftJoin('langganan', 'langganan.id', '=', 'users.status_langganan')
             ->select('langganan.kecepatan', 'langganan.harga')->get();

@@ -342,118 +342,118 @@
 
                             {{-- Section form input profil --}}
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                @role('admin-wifi')
+                                <form action="{{ route('admin-wifi.update-profil',''.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                                @endrole
+                                @role('wifi')
                                 <form action="{{ route('wifi.update-profil',''.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                                @endrole
                                     @method('PATCH')
                                     @csrf
-                                        <div class="row">
-                                            <div class="col-md-4 mt--2">
-                                                <div class="drop-zone">
-                                                      <div class="image">
-                                                            @if( Auth::user()->profile_photo == null)
-                                                                <img id="image" alt="" src="{{ asset('assets/images/avatars/default.png')}}">
-                                                            @else
-                                                                <img id="image" alt="" src="{{ asset('assets/images/avatars/'. Auth::user()->profile_photo)}}">
-                                                            @endif
-                                                      </div>        
-                                                </div>
-                                                <input id="default-btn" class="mt-2"  name="file" type="file" >
-                                                <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-                                                <script>
-                                                    const fileName = document.querySelector(".file-name");
-                                                    const defaultBtn = document.querySelector("#default-btn");
-                                                    const customBtn = document.querySelector("#custom-btn");
-                                                    const img = document.querySelector("#image");
-                                                    let regEXP = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-                                                    // function defaultBtnActive(){
-                                                    //   defaultBtn.click();
-                                                    // }
-                                                    defaultBtn.addEventListener("change", function(){
-                                                      const file = this.files[0];
-                                                        if(file){
-                                                          const reader = new FileReader();
-                                                          reader.onload = function(){
-                                                            const result = reader.result;
-                                                            img.src = result;
-                                                          }
-
-                                                          reader.readAsDataURL(file);
-                                                        }
-                                                        if(this.value){
-                                                          let valueStore = this.value.match(regEXP);
-                                                          fileName.textContent = valueStore;
-                                                        }
-                                                    });
-
-                                                </script>
+                                    <div class="row">
+                                        <div class="col-md-4 mt--2">
+                                            <div class="drop-zone">
+                                                  <div class="image">
+                                                        @if( Auth::user()->profile_photo == null)
+                                                            <img id="image" alt="" src="{{ asset('assets/images/avatars/default.png')}}">
+                                                        @else
+                                                            <img id="image" alt="" src="{{ asset('assets/images/avatars/'. Auth::user()->profile_photo)}}">
+                                                        @endif
+                                                  </div>        
                                             </div>
-                                            <div class="col-md-8">
-                                                <div class="col-md-12 form-group mb-3">
-                                                    <label for="firstName2">Username</label>
-                                                <input class="form-control form-control-rounded" name="name" id="username" type="text" value="{{ Auth::user()->name }}" placeholder="Enter your Username">
-                                                </div>
-                                                <div class="col-md-12 form-group mb-3">
-                                                    <label for="firstName2">Email</label>
-                                                <input class="form-control form-control-rounded" name="email" id="firstName2" type="email" value="{{ Auth::user()->email }}" placeholder="Enter your Email">
-                                                </div>
-                                                <div class="col-md-12 form-group mb-3">
-                                                    <label for="lastName2">Password</label>
-                                                    <input class="form-control form-control-rounded" name="password" type="password" placeholder="Enter your Password">
-                                                </div>
+                                            <input id="default-btn" class="mt-2"  name="file" type="file" >
+                                            <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+                                            <script>
+                                                const fileName = document.querySelector(".file-name");
+                                                const defaultBtn = document.querySelector("#default-btn");
+                                                const customBtn = document.querySelector("#custom-btn");
+                                                const img = document.querySelector("#image");
+                                                let regEXP = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+                                                // function defaultBtnActive(){
+                                                //   defaultBtn.click();
+                                                // }
+                                                defaultBtn.addEventListener("change", function(){
+                                                  const file = this.files[0];
+                                                    if(file){
+                                                      const reader = new FileReader();
+                                                      reader.onload = function(){
+                                                        const result = reader.result;
+                                                        img.src = result;
+                                                      }
+
+                                                      reader.readAsDataURL(file);
+                                                    }
+                                                    if(this.value){
+                                                      let valueStore = this.value.match(regEXP);
+                                                      fileName.textContent = valueStore;
+                                                    }
+                                                });
+
+                                            </script>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="firstName2">Username</label>
+                                            <input class="form-control form-control-rounded" name="name" id="username" type="text" value="{{ Auth::user()->name }}" placeholder="Enter your Username">
+                                            </div>
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="firstName2">Email</label>
+                                            <input class="form-control form-control-rounded" name="email" id="firstName2" type="email" value="{{ Auth::user()->email }}" placeholder="Enter your Email">
+                                            </div>
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="lastName2">Password</label>
+                                                <input class="form-control form-control-rounded" name="password" type="password" placeholder="Enter your Password">
                                             </div>
                                         </div>
-                                        <div class="form-group row text-right">
-                                            <div class="col-sm-11">
-                                                <button class="btn btn-primary" type="submit">Save</button>
-                                            </div>
+                                    </div>
+                                    <div class="form-group row text-right">
+                                        <div class="col-sm-11">
+                                            <button class="btn btn-primary" type="submit">Save</button>
                                         </div>
-                                    </form>
+                                    </div>
                                     <div class="text-center">
                                         <h5 class="heading text-primary">Lengkapi profil anda</h5>
                                         <a class="text-default collapsed" href="#collapse-icon" data-toggle="collapse" aria-expanded="false"><i class="i-Arrow-Down-2 t-font-boldest"></i></a>
                                     </div>
-                                    <form action="{{ route('wifi.detail-profil',''.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
-                                        @method('PATCH')
-                                        @csrf
+                                    @foreach ($profile as $prof)
                                         <div class="collapse" id="collapse-icon">
                                             <div class="mt-3">
-                                                {{-- <form > --}}
-                                                    <!--  start card 2 Columns Horizontal Form Layout-->
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputtext11">Nama Lengkap:</label>
-                                                            <input class="form-control" id="inputtext11" name="namalengkap" type="text" placeholder="Enter full name" /><small class="ul-form__text form-text" id="passwordHelpBlock">
+                                                            <label class="ul-form__label" for="inputtext">Nama Lengkap:</label>
+                                                            <input class="form-control" id="inputtext" name="namalengkap" type="text" placeholder="Enter full name" value="{{$prof->nama}}" /><small class="ul-form__text form-text" id="passwordHelpBlock">
                                                                 Please enter your full name
                                                             </small>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputEmail12">Nomor Hp/Wa:</label>
-                                                            <input class="form-control" id="inputEmail12" name="wa" type="number" placeholder="Enter Contact Number" />
+                                                            <label class="ul-form__label" for="inputE">Nomor Hp/Wa:</label>
+                                                            <input class="form-control" id="inputEmail1" name="wa" type="number" placeholder="Enter Contact Number" value="{{$prof->kontak}}" />
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputEmail12">Telegram:</label>
-                                                            <input class="form-control" id="inputEmail12" name="tele" type="number" placeholder="Enter Contact Number" />
+                                                            <label class="ul-form__label" for="inputEmail">Telegram:</label>
+                                                            <input class="form-control" id="inputEmail2" name="tele" type="number" placeholder="Enter Contact Number" value="{{$prof->telegram}}"/>
                                                         </div>
                                                     </div>
                                                     <div class="custom-separator"></div>
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputtext14">Bio:</label>
-                                                            <input class="form-control" id="inputtext14" name="bio" type="text" placeholder="Enter contact number " /><small class="ul-form__text form-text" id="passwordHelpBlock">
+                                                            <label class="ul-form__label" for="inputtext4">Bio:</label>
+                                                            <input class="form-control" id="inputtext4" name="bio" type="text" placeholder="Enter contact number " value="{{$prof->deskripsi}}" /><small class="ul-form__text form-text" id="passwordHelpBlock">
                                                                 Please enter your contact
                                                             </small>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputEmail15">Tanggal Lahir:</label>
+                                                            <label class="ul-form__label" for="inputEmail5">Tanggal Lahir:</label>
                                                             <div class="input-right-icon">
-                                                                <input class="form-control" id="inputEmail15" name="ttl" type="date" placeholder="Fax Number" /><span class="span-right-input-icon"></span>
+                                                                <input class="form-control" id="inputEmail5" name="ttl" type="date" placeholder="Fax Number" /><span class="span-right-input-icon"></span>
                                                             </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                                                 Please enter your Fax
                                                             </small>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputEmail16">Alamat:</label>
+                                                            <label class="ul-form__label" for="inputEmail6">Alamat:</label>
                                                             <div class="input-right-icon">
-                                                                <input class="form-control" id="inputEmail16" name="alamat" type="text" placeholder="Enter your address" /><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
+                                                                <input class="form-control" id="inputEmail6" name="alamat" type="text" placeholder="Enter your address" value="{{$prof->alamat}}"/><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
                                                             </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                                                 Please enter your address
                                                             </small>
@@ -464,24 +464,27 @@
                                                         <div class="form-group col-md-4">
                                                             <label class="ul-form__label" for="inputEmail18">Jenis Kelamin:</label>
                                                             <div class="ul-form__radio-inline">
+                                                                @if ($prof->jenkel == 'L')
                                                                 <label class="ul-radio__position radio radio-primary form-check-inline">
-                                                                    <input type="radio" name="kelamin" value="L" /><span class="ul-form__radio-font">L</span><span class="checkmark"></span>
+                                                                    <input type="radio" name="kelamin"  value="L" checked/><span class="ul-form__radio-font" >L</span><span class="checkmark"></span>
                                                                 </label>
                                                                 <label class="ul-radio__position radio radio-primary">
                                                                     <input type="radio" name="kelamin" value="P" /><span class="ul-form__radio-font">P</span><span class="checkmark"></span>
                                                                 </label>
+                                                                @else
+                                                                <label class="ul-radio__position radio radio-primary form-check-inline">
+                                                                    <input type="radio" name="kelamin"  value="L" /><span class="ul-form__radio-font" >L</span><span class="checkmark"></span>
+                                                                </label>
+                                                                <label class="ul-radio__position radio radio-primary">
+                                                                    <input type="radio" name="kelamin" value="P" checked/><span class="ul-form__radio-font">P</span><span class="checkmark"></span>
+                                                                </label>
+                                                                    
+                                                                @endif
                                                             </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                                                 Please select user group
                                                             </small>
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="form-group row text-right">
-                                                        <div class="col-sm-11">
-                                                            <button class="btn btn-primary" type="submit">Save</button>
-                                                        </div>
-                                                    </div> --}}
-                                                    <!--  end card 2 Columns Horizontal Form Layout-->
-                                                {{-- </form> --}}
                                             </div>
                                         </div>
                                     
@@ -490,8 +493,6 @@
                                                 <h5 class="heading text-primary">Media Sosial anda</h5>
                                             </div>
                                             <div class="mt-3">
-                                                {{-- <form action="action"> --}}
-                                                    <!--  start card 2 Columns Horizontal Form Layout-->
                                                     <div class="form-row">
                                                         <div class="form-group col-md-4">
                                                             <label class="ul-form__label" for="inputtext11">Facebook:</label>
@@ -499,7 +500,7 @@
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text bg-transparent"><i>url</i></div>
                                                                 </div>
-                                                                <input class="form-control" name="fb" id="inlineFormInputGroup" type="text" placeholder="https://www.facebook.com/kunthet.suu/" />
+                                                                <input class="form-control" name="fb" id="inlineFormInput" type="text" placeholder="https://www.facebook.com/kunthet.suu/" value="{{$prof->facebook}}"/>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4">
@@ -508,36 +509,31 @@
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text bg-transparent"><i>url</i></div>
                                                                 </div>
-                                                                <input class="form-control" name="twit" id="inlineFormInputGroup" type="text" placeholder="@ Username" />
+                                                                <input class="form-control" name="twit" id="inlineFormInputG" type="text" placeholder="@ Username" value="{{$prof->twitter}}" />
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-4">
-                                                            <label class="ul-form__label" for="inputEmail13">Instagram:</label>
+                                                            <label class="ul-form__label" for="inputEmai">Instagram:</label>
                                                             <div class="input-group mb-2">
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text bg-transparent"><i>url</i></div>
                                                                 </div>
-                                                                <input class="form-control" name="ins" id="inlineFormInputGroup" type="text" placeholder="https://www.instagram.com/ip2sr.01/" />
+                                                                <input class="form-control" name="ins" id="inlineFormInputGr" type="text" placeholder="https://www.instagram.com/ip2sr.01/" value="{{$prof->instagram}}"/>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    {{-- <div class="form-group row text-right">
+                                                    <div class="form-group row text-right">
                                                         <div class="col-sm-11">
                                                             <button class="btn btn-primary" type="submit">Save</button>
                                                         </div>
-                                                    </div> --}}
-                                                    <!--  end card 2 Columns Horizontal Form Layout-->
-                                                {{-- </form> --}}
-                                                
+                                                    </div>  
+                                                    @endforeach
                                             </div>
-                                            <button type="submit" class="btn btn-warning ladda-button example-button m-1" data-style="expand-left">
-                                                <span class="ladda-label">Submit</span><span class="ladda-spinner">
-                                                    </span><div class="ladda-progress" style="width: 0px;"></div>
-                                            </button>
                                         </div>
-                                    </form> {{-- Form untuk simpan semua --}}
-                                </div>               
+                                    </form>  
+                                    {{-- Form untuk simpan semua --}}
+                                              
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -568,24 +564,24 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputtext11">Nama Lengkap:</label>
-                                        <input class="form-control" id="inputtext11" name="namalengkap" type="text" placeholder="Enter full name" /><small class="ul-form__text form-text" id="passwordHelpBlock">
+                                        <input class="form-control" id="inputtext11" name="namalengkap" type="text" placeholder="Enter full name" required /><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your full name
                                         </small>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail12">Nomor Hp/Wa:</label>
-                                        <input class="form-control" id="inputEmail12" name="wa" type="number" placeholder="Enter Contact Number" required/>
+                                        <input class="form-control" id="inputEmail12" name="wa" type="number" placeholder="Enter Whatsapp Number" required/>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="ul-form__label" for="inputEmail12">Telegram:</label>
-                                        <input class="form-control" id="inputEmail12" name="tele" type="number" placeholder="Enter Contact Number" required/>
+                                        <label class="ul-form__label" for="inputEmail12">ID chat Telegram:</label>
+                                        <input class="form-control" id="inputEmail12" name="tele" type="number" placeholder="Enter Chat ID Telegram" required/>
                                     </div>
                                 </div>
                                 <div class="custom-separator"></div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputtext14">Bio:</label>
-                                        <input class="form-control" id="inputtext14" name="bio" type="text" placeholder="Enter contact number " required /><small class="ul-form__text form-text" id="passwordHelpBlock">
+                                        <input class="form-control" id="inputtext14" name="bio" type="text" placeholder="Enter Bio  " required /><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your contact
                                         </small>
                                     </div>
@@ -594,13 +590,13 @@
                                         <div class="input-right-icon">
                                             <input class="form-control" id="inputEmail15" name="ttl" type="date" placeholder="Fax Number" required /><span class="span-right-input-icon"></span>
                                         </div><small class="ul-form__text form-text" id="passwordHelpBlock">
-                                            Please enter your Fax
+                                            Please enter your Born
                                         </small>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label class="ul-form__label" for="inputEmail16">Alamat:</label>
                                         <div class="input-right-icon">
-                                            <input class="form-control" id="inputEmail16" name="alamat" type="text" placeholder="Enter your address" required/><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
+                                            <input class="form-control" id="inputEmail16" name="alamat" type="text" placeholder="Beteng, Rt01/Rw09" required/><span class="span-right-input-icon"><i class="ul-form__icon i-Map-Marker"></i></span>
                                         </div><small class="ul-form__text form-text" id="passwordHelpBlock">
                                             Please enter your address
                                         </small>
@@ -617,12 +613,10 @@
                                             <label class="ul-radio__position radio radio-primary">
                                                 <input type="radio" name="kelamin" value="P" required/><span class="ul-form__radio-font">P</span><span class="checkmark"></span>
                                             </label>
-                                        </div><small class="ul-form__text form-text" id="passwordHelpBlock">
-                                            Please select user group
-                                        </small>
+                                        </div>
                                     </div>
                                 </div>
-                            <button type="submit" class="btn btn-warning ladda-button example-button m-1" data-style="expand-left">
+                            <button type="submit" class="btn btn-primary ladda-button example-button m-1" data-style="expand-left">
                                 <span class="ladda-label">Submit</span><span class="ladda-spinner">
                                     </span><div class="ladda-progress" style="width: 0px;"></div>
                             </button>
@@ -675,6 +669,11 @@
 <!--  Verify Modal content -->
 @endsection
 
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/iziToast.min.css')}}">
+<link rel="stylesheet" href="{{ asset('css/iziToast.css')}}">
+@endsection
+
 @section('js')
 <script src="{{ asset('theme/js/plugins/datatables.min.js')}}"></script>
 <script src="{{ asset('theme/js/scripts/dashboard.v4.script.min.js')}}"></script>
@@ -682,8 +681,21 @@
 <script src="{{ asset('theme/js/scripts/customizer.script.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/inputimage.js')}}"></script>
 <script type="text/javascript" src="{{ asset('js/inputimage.js')}}"></script>
-<script type="text/javascript" src="{{ asset('theme/js/plugins/ladda.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('theme/js/plugins/ladda.js')}}"></script>
-<script type="text/javascript" src="{{ asset('theme/js/scripts/ladda.script.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('theme/js/plugins/feather.min.js')}}"></script>
+
+<script src="{{ asset('web/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('js/iziToast.js')}}"></script>
+<script src="{{ asset('js/iziToast.min.js')}}"></script>
+
+    @if(Session::has('berhasil'))
+        <script>
+                iziToast.success({
+                    title: 'OK',
+                    message: '{{ session('berhasil') }}',
+                    position: 'topRight',
+                    transitionIn: 'fadeInUp',
+                });
+        </script>
+    @endif	
 @endsection
+

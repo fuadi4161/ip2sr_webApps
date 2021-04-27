@@ -1,5 +1,5 @@
 <div class="sidebar-panel bg-white">
-    <div class="gull-brand pr-3 text-center mt-4 mb-2 d-flex justify-content-center align-items-center"><img class="pl-3" src="{{ asset('web/images/logowebipsr.v2.png')}}" alt="alt" style="width: 23%"/>
+    <div class="gull-brand pr-3 text-center mt-4 mb-2 d-flex justify-content-center align-items-center"><img class="pl-3" src="{{ asset('web/images/Logowebipsr.v2.png')}}" style="width: 23%"/>
         <span class=" item-name text-20 text-primary font-weight-700">IP2SR</span>
         <div class="sidebar-compact-switch ml-auto"><span></span></div>
     </div>
@@ -11,7 +11,7 @@
                     @role('wifi')
                     <li class="Ul_li--hover"><a href="{{ route('wifi.dashboard')}}"><i class="i-Bar-Chart text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Dashboard</span></a>
                     </li>
-                    <li class="Ul_li--hover"><a href="{{ route('wifi.pembayaran')}}"><i class="i-File-Clipboard-File--Text text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Pembayaran</span></a>
+                    <li class="Ul_li--hover"><a href="{{ route('wifi.pembayaran')}}"><i class="i-Letter-Open text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Pembayaran</span></a>
                     </li>
                     <li class="Ul_li--hover"><a href=""><i class="i-File-Horizontal-Text text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Berita</span></a>
                     </li>
@@ -19,9 +19,9 @@
                     @role('admin-wifi')
                     <li class="Ul_li--hover"><a href="{{ route('admin-wifi.dashboard')}}"><i class="i-Bar-Chart text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Dashboard</span></a>
                     </li>
-                    <li class="Ul_li--hover"><a href="{{ route('admin-wifi.users-wifi')}}"><i class="i-File-Clipboard-File--Text text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Input Pembayaran</span></a>
+                    <li class="Ul_li--hover"><a href="{{ route('admin-wifi.users-wifi')}}"><i class="i-Letter-Open text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Input Pembayaran</span></a>
                     </li>
-                    <li class="Ul_li--hover"><a href="{{ route('admin-wifi.laporan')}}"><i class="i-File-Clipboard-File--Text text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Laporan Pembayaran</span></a>
+                    <li class="Ul_li--hover"><a href="{{ route('admin-wifi.laporan')}}"><i class="i-Library text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Laporan Pembayaran</span></a>
                     </li>
                     <li class="Ul_li--hover"><a href="{{ route('admin-wifi.pembayaran')}}"><i class="i-File-Clipboard-File--Text text-20 mr-2 text-muted"></i><span class="item-name text-15 text-muted">Pembayaran</span></a>
                     </li>

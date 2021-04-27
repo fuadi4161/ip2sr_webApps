@@ -1,5 +1,5 @@
 <div class="sidebar-panel bg-white">
-    <div class="gull-brand pr-3 text-center mt-4 mb-2 d-flex justify-content-center align-items-center"><img class="pl-3" src="{{ asset('web/images/logowebipsr.v2.png')}}" alt="alt" style="width: 23%"/>
+    <div class="gull-brand pr-3 text-center mt-4 mb-2 d-flex justify-content-center align-items-center"><img class="pl-3" src="{{ asset('web/images/Logowebipsr.v2.png')}}" alt="alt" style="width: 23%"/>
         <span class=" item-name text-20 text-primary font-weight-700">IP2SR</span>
         <div class="sidebar-compact-switch ml-auto"><span></span></div>
     </div>

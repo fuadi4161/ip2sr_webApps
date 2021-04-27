@@ -231,7 +231,7 @@ Route::group(
         Route::get('/', 'User\UserController@index')->name('sekertaris.dashboard');
 
         //profile
-        Route::patch('/update-profil/{user}', 'Profil\ProfilUserController@update')->name('sekertaris.update-profil');
+        Route::patch('/update-profil/{id}', 'Profil\ProfilUserController@update')->name('sekertaris.update-profil');
     }
 );
 Route::group(
@@ -243,7 +243,7 @@ Route::group(
         Route::get('/Pembayaran', 'Wifi\PembayaranController@index')->name('admin-wifi.pembayaran');
 
         //profile
-        Route::patch('/update-profil/{user}', 'Profil\ProfilUserController@update')->name('admin-wifi.update-profil');
+        Route::patch('/update-profil/{id}', 'Profil\ProfilUserController@update')->name('admin-wifi.update-profil');
 
         //User Wifi
         Route::get('/wifi-user', 'User_wifi\UserWifiController@index')->name('admin-wifi.users-wifi');
@@ -263,7 +263,7 @@ Route::group(
         Route::get('/', 'Wifi\WifiController@index')->name('wifi.dashboard');
         Route::patch('/detail-profil/{id}', 'Profil\ProfilUserController@detailprofil')->name('wifi.detail-profil');
         //profile
-        Route::patch('/update-profil/{user}', 'Profil\ProfilUserController@update')->name('wifi.update-profil');
+        Route::patch('/update-profil/{id}', 'Profil\ProfilUserController@update')->name('wifi.update-profil');
 
         //Pembayaran
         Route::get('/Pembayaran', 'Wifi\PembayaranController@index')->name('wifi.pembayaran');
