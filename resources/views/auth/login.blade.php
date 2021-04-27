@@ -1,72 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="web/css/login.css">
-</head>
-<body>
-  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
-    <div class="container">
-      <div class="card login-card">
-        <div class="row no-gutters">
-          <div class="col-md-5">
-            <img src="web/images/login.jpg" alt="login" class="login-card-img">
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <div class="brand-wrapper">
-                <img style="width:150px;" src="web/images/logo_login.png">
-              </div>
-            @if (session('status'))
-                <div class="mb-4 font-medium text-sm text-green-600">
+<!doctype html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="web/css/loginV2.css">
+
+    <title>Login</title>
+  </head>
+  <body>
+      <center>
+          <div class="login-div">
+              <div class="logo"></div>
+              <div class="title">IP2SR</div>
+              <div class="sub-title">Ikatan Pemuda Pemudi Sido Rukun</div>
+              @if (session('status'))
+                <div class="mb-4 mt-2 font-medium text-sm text-green-600">
                     {{ session('status') }}
                 </div>
             @endif
-              <p class="login-card-description">Masuk dengan akun anda</p>
-              <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
-                  <div class="form-group">
-                    <label for="email" class="sr-only">Email</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                  </div>
-                  <div class="form-group mb-4">
-                    <label for="password" class="sr-only">Password</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                  </div>
-                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Masuk">
-                </form>
-                <a href="#!" class="forgot-password-link">Forgot password?</a>
-                <p class="login-card-footer-text">Belum punya akun? <a href="{{ route('register') }}"  class="text-reset">Daftar Disini</a></p>
-                <br>
-                <p> all password = password</p>
-                <p>Super Admin  : superadmin@superadmin.com</p>
-                <p>Admin Pemuda : admin@admin.com</p>
-                <p>User Pemuda  : pemuda@pemuda.com</p>
-                <p>Bendahara    : bendahara@pemuda.com</p>
-                <p>Sekertaris   : sekertaris@pemuda.com</p>
-                <p>Admin Wifi   : adminwifi@adminwifi.com</p>
-                <p>User Wifi    : userwifi@adminwifi.com</p>
-                <p>Pengunjung   : user@user.com</p>
+              <div class="fields">
+                <div class="username">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+                    </svg>
+                <input type="email" class="user-input form-control @error('email') is-invalid @enderror" placeholder="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/></div>
+                <div class="password">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                    </svg>
+                <input type="password" class=" pass-input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="password" />
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+              </div>
+              <button class="signin-button" type="submit">Login</button>
+              <div class="link">
+                <a href="#">Forgot password?</a> or <a href="/Register.html">Sign up</a>
+              </div>
+            </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
+      </center>
+  </body>
 </html>

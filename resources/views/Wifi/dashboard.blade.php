@@ -391,7 +391,7 @@
 
                                             </script>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 mt-2">
                                             <div class="col-md-12 form-group mb-3">
                                                 <label for="firstName2">Username</label>
                                             <input class="form-control form-control-rounded" name="name" id="username" type="text" value="{{ Auth::user()->name }}" placeholder="Enter your Username">
