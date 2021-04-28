@@ -65,7 +65,10 @@ class ApiLoginController extends Controller
         $usersPanding = DB::table('posision_users')->where('status', false)->count();
 
         $users = Auth::user();
-        $usersprofil = DB::table('profile_users')->where('user_id', $userid)->get();
+        $profil = DB::table('profile_users')->where('user_id', $userid)->get();
+         foreach ($profil as $value) {
+            $usersprofil = $value;
+         }
 
         $rolename = DB::table('model_has_roles')->where('model_id', Auth::user()->id)
             ->leftjoin('roles','model_has_roles.role_id','=', 'roles.id')
