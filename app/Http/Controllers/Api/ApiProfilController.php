@@ -50,6 +50,17 @@ class ApiProfilController extends Controller
                 'success' => true,
                 'pesan' => 'Berhasil update password'
             ]);
+    	 }elseif ($pesan == 'fullname') {
+    	 	DB::table('profile_users')->where('user_id', Auth::user()->id)
+    	 	->update([
+                'nama' => $value,
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+                return response()->json([
+                'success' => true,
+                'pesan' => 'Berhasil update fullname'
+            ]);
     	 }
     	  
 
