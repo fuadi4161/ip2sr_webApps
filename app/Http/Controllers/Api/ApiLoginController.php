@@ -61,19 +61,26 @@ class ApiLoginController extends Controller
         $paymentReq = DB::table('pembayaran')->where('status', false)->count();
         $usersLunas = DB::table('posision_users')->where('status', true)->count();
         $usersPanding = DB::table('posision_users')->where('status', false)->count();
-        $users = Auth::user();
+        $users = DB::table('users')->where('id', Auth::user()->id)
+        ->leftjoin('profile_users', 'profile_users.user_id','=','users.id')
+        ->get();
         $rolename = DB::table('model_has_roles')->where('model_id', Auth::user()->id)
             ->leftjoin('roles','model_has_roles.role_id','=', 'roles.id')
             ->select('roles.name')->get();
             foreach($rolename as $value){
                 $role = $value->name;
             }
+        $notif = DB::table('notifikasi')->where('user_id', Auth::user()->id)->get();
+
+        $notifcount = DB::table('notifikasi')->where([['user_id', Auth::user()->id],['status',false]])->count();
         
         $data['paymentReq'] = $paymentReq;
         $data['usersLunas'] = $usersLunas;
         $data['usersPanding'] = $usersPanding;
         $data['users'] = $users;
         $data['role'] = $role;
+        $data['notif'] = $notif;
+        $data['notifcount'] = $notifcount;
         
         return response()->json([
             'success' => true,
