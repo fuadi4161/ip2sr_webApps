@@ -56,16 +56,12 @@ class ApiLoginController extends Controller
         }
     }
 
-    public function user()
+   public function user()
     {
-        $userid = Auth::user()->id;
-
         $paymentReq = DB::table('pembayaran')->where('status', false)->count();
         $usersLunas = DB::table('posision_users')->where('status', true)->count();
         $usersPanding = DB::table('posision_users')->where('status', false)->count();
-
         $users = Auth::user();
-
         $rolename = DB::table('model_has_roles')->where('model_id', Auth::user()->id)
             ->leftjoin('roles','model_has_roles.role_id','=', 'roles.id')
             ->select('roles.name')->get();
@@ -86,6 +82,7 @@ class ApiLoginController extends Controller
         ]);
 
     }
+
 
     public function userprofil()
     {
