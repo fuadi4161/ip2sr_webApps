@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/user', 'Api\ApiLoginController@user');
+    Route::get('/userprofile', 'Api\ApiLoginController@userprofil');
     Route::get('/payment', 'Api\ApiLoginController@payment');
     Route::get('/status', 'Api\ApiLoginController@payinet');
     Route::get('/datainet', 'Api\ApiLoginController@datainet');
