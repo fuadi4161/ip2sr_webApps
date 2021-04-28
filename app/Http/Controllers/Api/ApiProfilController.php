@@ -24,7 +24,6 @@ class ApiProfilController extends Controller
 
                 return response()->json([
                 'success' => true,
-                'data' => $data,
                 'pesan' => 'Berhasil update username'
             ]);
 
@@ -38,7 +37,6 @@ class ApiProfilController extends Controller
 
                 return response()->json([
                 'success' => true,
-                'data' => $data,
                 'pesan' => 'Berhasil update email'
             ]);
     	 }elseif ($pesan == 'password') {
@@ -50,7 +48,6 @@ class ApiProfilController extends Controller
 
                 return response()->json([
                 'success' => true,
-                'data' => $data,
                 'pesan' => 'Berhasil update password'
             ]);
     	 }
