@@ -56,45 +56,32 @@ class ApiLoginController extends Controller
         }
     }
 
-   public function user()
+    public function user()
     {
+        $userid = Auth::user()->id;
+
         $paymentReq = DB::table('pembayaran')->where('status', false)->count();
         $usersLunas = DB::table('posision_users')->where('status', true)->count();
         $usersPanding = DB::table('posision_users')->where('status', false)->count();
+
         $users = Auth::user();
+        $usersprofil = DB::table('profile_users')->where('user_id', $userid)->get();
+
         $rolename = DB::table('model_has_roles')->where('model_id', Auth::user()->id)
             ->leftjoin('roles','model_has_roles.role_id','=', 'roles.id')
             ->select('roles.name')->get();
             foreach($rolename as $value){
                 $role = $value->name;
             }
+        $notif = DB::table('notifikasi')->where('user_id', Auth::user()->id)->get();
+
+        $notifcount = DB::table('notifikasi')->where([['user_id',$userid ],['status', false]])->count();
         
         $data['paymentReq'] = $paymentReq;
         $data['usersLunas'] = $usersLunas;
         $data['usersPanding'] = $usersPanding;
         $data['users'] = $users;
         $data['role'] = $role;
-        
-        return response()->json([
-            'success' => true,
-            'data' => $data,
-            'pesan' => 'Berhasil ambil data'
-        ]);
-
-    }
-
-
-    public function userprofil()
-    {
-        $userid = Auth::user()->id;
-
-        $usersprofil = DB::table('profile_users')->where('user_id', $userid)->get();
-       
-        $notif = DB::table('notifikasi')->where('user_id', Auth::user()->id)->get();
-
-        $notifcount = DB::table('notifikasi')->where([['user_id',$userid ],['status', false]])->count();
-        
-       
         $data['notif'] = $notif;
         $data['notifcount'] = $notifcount;
         $data['userProfile'] = $usersprofil;
