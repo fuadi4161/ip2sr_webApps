@@ -58,12 +58,15 @@ class ApiLoginController extends Controller
 
     public function user()
     {
+        $userid = Auth::user()->id;
+
         $paymentReq = DB::table('pembayaran')->where('status', false)->count();
         $usersLunas = DB::table('posision_users')->where('status', true)->count();
         $usersPanding = DB::table('posision_users')->where('status', false)->count();
-        $users = DB::table('users')->where('id', Auth::user()->id)
-        ->leftjoin('profile_users', 'profile_users.user_id','=','users.id')
-        ->get();
+
+        $users = Auth::user();
+        $usersprofil = DB::table('profile_users')->where('user_id', $userid)->get();
+
         $rolename = DB::table('model_has_roles')->where('model_id', Auth::user()->id)
             ->leftjoin('roles','model_has_roles.role_id','=', 'roles.id')
             ->select('roles.name')->get();
@@ -72,7 +75,7 @@ class ApiLoginController extends Controller
             }
         $notif = DB::table('notifikasi')->where('user_id', Auth::user()->id)->get();
 
-        $notifcount = DB::table('notifikasi')->where([['user_id', Auth::user()->id],['status',false]])->count();
+        $notifcount = DB::table('notifikasi')->where([['user_id',$userid ],['status', false]])->count();
         
         $data['paymentReq'] = $paymentReq;
         $data['usersLunas'] = $usersLunas;
@@ -81,6 +84,7 @@ class ApiLoginController extends Controller
         $data['role'] = $role;
         $data['notif'] = $notif;
         $data['notifcount'] = $notifcount;
+        $data['userProfile'] = $usersprofil;
         
         return response()->json([
             'success' => true,
