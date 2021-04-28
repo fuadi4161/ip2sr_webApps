@@ -38,5 +38,6 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/berita', 'Api\ApiLoginController@berita');
     Route::get('/opsi', 'Api\ApiLoginController@IuranOption');
     Route::get('/userscont', 'Api\ApiLoginController@userCount');
+    Route::post('/updateProfil', 'Api\ApiProfilController@profile');
 });
 Route::post('login', 'Api\ApiLoginController@login');
