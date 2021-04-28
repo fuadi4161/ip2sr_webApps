@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ApiProfilController extends Controller
 {
-    public function profil(Request $request){
+    public function profile(Request $request){
 
     	$pesan = $request->pesan; 
     	$value = $request->value;
@@ -25,7 +25,7 @@ class ApiProfilController extends Controller
                 return response()->json([
                 'success' => true,
                 'data' => $data,
-                'pesan' => 'Berhasil'
+                'pesan' => 'Berhasil update username'
             ]);
 
     	 }elseif($pesan == 'email') {
@@ -39,7 +39,7 @@ class ApiProfilController extends Controller
                 return response()->json([
                 'success' => true,
                 'data' => $data,
-                'pesan' => 'Berhasil'
+                'pesan' => 'Berhasil update email'
             ]);
     	 }elseif ($pesan == 'password') {
     	 	DB::table('users')->where('id', Auth::user()->id)
@@ -51,7 +51,7 @@ class ApiProfilController extends Controller
                 return response()->json([
                 'success' => true,
                 'data' => $data,
-                'pesan' => 'Berhasil'
+                'pesan' => 'Berhasil update password'
             ]);
     	 }
     	  
