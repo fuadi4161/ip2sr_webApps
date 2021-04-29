@@ -99,7 +99,13 @@ class ApiLoginController extends Controller
 
     public function notifikasi(){
 
-        $data = DB::table('notifikasi')->where('user_id', Auth::user()->id)->get();
+        $userid = Auth::user()->id;
+
+        $all = DB::table('notifikasi')->where('user_id', $userid )->get();
+        $notif = DB::table('notifikasi')->where([['user_id','=', $userid],['status', '=', false]] )->get();
+        $data['allnotif'] = $all;
+        $data['notif'] = $notif;
+
         return response()->json([
             'success' => true,
             'data' => $data,
