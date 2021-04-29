@@ -465,6 +465,16 @@ class ApiLoginController extends Controller
                         'status' => true,
                     ]);
 
+                     $date = Carbon::now()->format('d-MM-YYYY');
+
+                     DB::table('notifikasi')->insert([
+                            'user_id' => $user,
+                            'judul' => 'Terima kasih',
+                            'deskripsi' => 'Iuran anda Iuran sudah di terima admin.',
+                            'date' => $date,
+                            'status' => false,
+                        ]);
+
                     $getToken = DB::table('users')->where('id', $user)->get();
 
                     foreach ($getToken as $key ) {
@@ -485,7 +495,7 @@ class ApiLoginController extends Controller
 
                             "title" => 'Terima kasih.',
     
-                            "body" => 'Iuran anda telah di konfirmasi.',
+                            "body" => 'Iuran anda Iuran sudah di terima admin.',
                             
                             "icon" => 'https://www.rumahweb.com/assets/img/accredited-id.png',
     
@@ -520,6 +530,18 @@ class ApiLoginController extends Controller
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
                 } else {
+
+
+                    $date = Carbon::now()->format('d-MM-YYYY');
+
+                     DB::table('notifikasi')->insert([
+                            'user_id' => $user,
+                            'judul' => 'Terima kasih',
+                            'deskripsi' => 'Iuran anda Iuran sudah di terima admin.',
+                            'date' => $date,
+                            'status' => false,
+                        ]);
+
                     DB::table('posision_users')->where([['user_id','=', $user],['posision_id','=', $posision]])
                     ->update([
                         'status' => true,
@@ -555,7 +577,7 @@ class ApiLoginController extends Controller
 
                             "title" => 'Terima kasih',
 
-                            "body" =>  'Iuran sudah kami terima..',
+                            "body" =>  'Iuran anda Iuran sudah di terima admin.',
 
                             "sound"=> 'stoneSkimingDay4', // required for sound on ios
 
@@ -639,6 +661,7 @@ class ApiLoginController extends Controller
     
     public function update(Request $request)
     {
+       
         Pembayaran::where('id', $request->id)
             ->update([
                 'status' => true,
@@ -650,10 +673,14 @@ class ApiLoginController extends Controller
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
+
+         $date = Carbon::now()->format('d-MM-YYYY');
+
          DB::table('notifikasi')->insert([
                 'user_id' => $request->userid,
                 'judul' => 'Terima kasih',
                 'deskripsi' => 'Iuran anda telah di konfirmasi.',
+                'date' => $date,
                 'status' => false,
             ]);
 
@@ -720,17 +747,6 @@ class ApiLoginController extends Controller
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
     
                     $response = curl_exec($ch);
-    
-
-        // return response()->json($pembayar);
-
-        // $text = "Iuran dari $payed sudah dikonfirmasi oleh  $penerima.\n";
-
-        // Telegram::sendMessage([
-        //     'chat_id' => -1001165814900,
-        //     'parse_mode' => 'HTML',
-        //     'text' => $text
-        // ]);
 
         return response()->json([
             'success' => true,

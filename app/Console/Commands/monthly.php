@@ -77,6 +77,7 @@ class monthly extends Command
                 'user_id' => $chat->user_id,
                 'judul' => 'Hai..  Assalamualikum.. 👋👋',
                 'deskripsi' => 'Alhamdulillah... gak kerasa sudah awal bulan lagi.. paling lambat tanggal 5 ya.',
+                'date' => Carbon::now()->format('d-MM-YYYY');
                 'status' => false,
             ]);
         }
