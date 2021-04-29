@@ -828,8 +828,8 @@ class ApiLoginController extends Controller
     public function userCount()
     {
         $totalusers = DB::table('posision_users')->where('posision_id',2)->count();
-        $usersLunas = DB::table('posision_users')->where([['status', true],['posision_id','=',2]])->count();
-        $usersPanding = DB::table('posision_users')->where([['status', false],['posision_id','=',2]])->count();
+        $usersLunas = DB::table('posision_users')->where([['status', true],['posision_id',2]])->count();
+        $usersPanding = DB::table('posision_users')->where([['status', false],['posision_id',2]])->count();
         
         
         $data['totalUser'] = $totalusers;
