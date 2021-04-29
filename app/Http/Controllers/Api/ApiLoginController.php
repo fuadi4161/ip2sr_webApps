@@ -61,9 +61,10 @@ class ApiLoginController extends Controller
         $userid = Auth::user()->id;
 
         $paymentReq = DB::table('pembayaran')->where('status', false)->count();
-        $usersLunas = DB::table('posision_users')->where('status', true)->count();
-        $usersPanding = DB::table('posision_users')->where('status', false)->count();
+        $usersLunas = DB::table('posision_users')->where([['status', true],['posision_id',2]])->count();
+        $usersPanding = DB::table('posision_users')->where([['status', false],['posision_id',2]])->count();
 
+       
         $users = Auth::user();
         $profil = DB::table('profile_users')->where('user_id', $userid)->get();
          foreach ($profil as $value) {
