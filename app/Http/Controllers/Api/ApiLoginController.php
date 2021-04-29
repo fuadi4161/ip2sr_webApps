@@ -844,6 +844,11 @@ class ApiLoginController extends Controller
          DB::table('notifikasi')->where('id', $ID)->update([
                 'status' => true,
             ]);
+
+         return response()->json([
+                        'success' => true,
+                        'pesan' => 'User sudah iuran bulan ini'
+                    ]);
      }
     
 }
