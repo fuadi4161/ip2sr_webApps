@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/statusFalse', 'Api\ApiLoginController@statusFalse');
     Route::post('/fcmToken', 'Api\ApiLoginController@fcmToken');
     Route::get('/notif', 'Api\ApiLoginController@notifikasi');
+    Route::post('/notifRead', 'Api\ApiLoginController@notifRead');
     Route::get('/payallusers/{bulan}', 'Api\ApiLoginController@paymentAllUsers');
     Route::get('/delete/{id}', 'Api\ApiLoginController@paymentAllUsersdelete');
     Route::get('/berita', 'Api\ApiLoginController@berita');

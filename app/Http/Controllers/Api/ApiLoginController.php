@@ -240,6 +240,12 @@ class ApiLoginController extends Controller
                 'cek' => date('Y-m'),
                 'status' => false,
             ]);
+            DB::table('notifikasi')->insert([
+                'user_id' => $request->id,
+                'judul' => 'Request Iuran',
+                'deskripsi' => $userName.' meminta konfirmasi Iuran',
+                'status' => false,
+            ]);
 
             DB::table('posision_users')->where('user_id', $users)
                 ->update([
@@ -451,6 +457,61 @@ class ApiLoginController extends Controller
                         'cek' => date('Y-m'),
                         'status' => true,
                     ]);
+
+                    $getToken = DB::table('users')->where('id', $user)->get();
+
+                    foreach ($getToken as $key ) {
+
+                        $FCM_token = $key->notif_fcm;
+                    }
+
+                    $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+
+                
+                    $data = [
+
+                        "registration_ids" => [
+                            $FCM_token
+                        ],
+
+                        "notification" => [
+
+                            "title" => 'Terima kasih.',
+    
+                            "body" => 'Iuran anda telah di konfirmasi.',
+                            
+                            "icon" => 'https://www.rumahweb.com/assets/img/accredited-id.png',
+    
+                            "sound"=> "default"  // required for sound on ios
+
+                        ],
+
+                    ];
+
+                    $dataString = json_encode($data);
+
+                    $headers = [
+
+                        'Authorization: key=' . $SERVER_API_KEY,
+
+                        'Content-Type: application/json',
+
+                    ];
+
+                    $ch = curl_init();
+
+                    curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+
+                    curl_setopt($ch, CURLOPT_POST, true);
+
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
                 } else {
                     DB::table('posision_users')->where([['user_id','=', $user],['posision_id','=', $posision]])
                     ->update([
@@ -466,6 +527,58 @@ class ApiLoginController extends Controller
                         'status' => true,
                         'updated_at' => date('Y-m-d H:i:s'),
                     ]);
+
+                    $getToken = DB::table('users')->where('id', $user)->get();
+
+                    foreach ($getToken as $key ) {
+
+                        $FCM_token = $key->notif_fcm;
+                    }
+
+                    $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+
+                
+                    $data = [
+
+                        "registration_ids" => [
+                            $FCM_token
+                        ],
+
+                        "notification" => [
+
+                            "title" => 'Terima kasih',
+
+                            "body" =>  'Iuran sudah kami terima..',
+
+                            "sound"=> 'stoneSkimingDay4', // required for sound on ios
+
+                        ],
+
+                    ];
+
+                    $dataString = json_encode($data);
+
+                    $headers = [
+
+                        'Authorization: key=' . $SERVER_API_KEY,
+
+                        'Content-Type: application/json',
+
+                    ];
+
+                    $ch = curl_init();
+
+                    curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+
+                    curl_setopt($ch, CURLOPT_POST, true);
+
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
                 }
             }
 
@@ -530,6 +643,13 @@ class ApiLoginController extends Controller
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
+         DB::table('notifikasi')->insert([
+                'user_id' => $request->userid,
+                'judul' => 'Terima kasih',
+                'deskripsi' => 'Iuran anda telah di konfirmasi.',
+                'status' => false,
+            ]);
+
         $penerima = Auth::user()->name;
 
         $pembayar = DB::table('users')->where('users.id', $request->userid)->get();
@@ -556,7 +676,7 @@ class ApiLoginController extends Controller
     
                         "notification" => [
     
-                            "title" => 'Berhasil..',
+                            "title" => 'Terima kasih.',
     
                             "body" => 'Iuran anda telah di konfirmasi.',
                             
@@ -717,6 +837,14 @@ class ApiLoginController extends Controller
         ]);
 
     }
+
+     public function notifRead(Request $request){
+        $ID = $request->idNotif;
+
+         DB::table('notifikasi')->where('id', $ID)->update([
+                'status' => true,
+            ]);
+     }
     
 }
 
