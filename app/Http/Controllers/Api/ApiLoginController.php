@@ -102,8 +102,8 @@ class ApiLoginController extends Controller
 
         $userid = Auth::user()->id;
 
-        $all = DB::table('notifikasi')->where([['user_id','=', $userid],['status', '=', true]])->get();
-        $notif = DB::table('notifikasi')->where([['user_id','=', $userid],['status', '=', false]] )->get();
+        $all = DB::table('notifikasi')->where([['user_id','=', $userid],['status', '=', true]])->orderBy('id', 'DESC')->get();
+        $notif = DB::table('notifikasi')->where([['user_id','=', $userid],['status', '=', false]] )->orderBy('id', 'DESC')->get();
         $data['allnotif'] = $all;
         $data['notif'] = $notif;
 
