@@ -141,6 +141,8 @@ class UserwifiController extends Controller
 
         $data = $request->all();
 
+        $email = $data['email'];
+
         $userwifi = new User;
         $userwifi->name = $data['name'];
         $userwifi->email = $data['email'];
@@ -158,6 +160,8 @@ class UserwifiController extends Controller
         $hasrole->model_type = 'App\User';
         $hasrole->model_id = $userwifi->id;
         $hasrole->save();
+
+        \Mail::to($email)->send(new \App\Mail\NewUserNotification($detail));
 
         return back();
     }

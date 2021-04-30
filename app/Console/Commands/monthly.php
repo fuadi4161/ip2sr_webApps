@@ -71,15 +71,16 @@ class monthly extends Command
                 'parse_mode' => 'HTML',
                 'text' => $text
             ]);
-            }
-
-            DB::table('notifikasi')->insert([
+            DB::table('notifikasi')
+            ->insert([
                 'user_id' => $chat->user_id,
                 'judul' => 'Hai..  Assalamualikum.. 👋👋',
                 'deskripsi' => 'Alhamdulillah... gak kerasa sudah awal bulan lagi.. paling lambat tanggal 5 ya.',
-                'date' => Carbon::now()->format('d-MM-YYYY');
+                'date' => Carbon::now()->format('d-MM-YYYY'),
                 'status' => false,
             ]);
+            }
+
         }
         
         //Sesi Notifikasi Aplikasi

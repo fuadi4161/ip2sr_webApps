@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,25 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('home.contact');
 Route::get('/about', 'HomeController@about')->name('home.about');
 
-// Route::get('telegram', function () {
+Route::get('mail', function () {
+    
+
+    $detail = [
+            'name' => 'Harsukh Makwana',
+            'info' => 'Laravel & Python Devloper'
+        ];
+
+        // \Mail::raw('Selamat datang', function ($massage) use($detail){
+        //     $massage->to('fuadi@gmail.com');
+        //     $massage->subject('Selamat anda sudah terdaftar ');
+        // });
+    
+        \Mail::to('fuadznice@gmail.com')->send(new \App\Mail\NewUserNotification($detail));
+    
+        dd("success");
+    
+  
+
 //     $activity = Telegram::getUpdates();
 //         // return response()->json($activity);
 //     $text = "Permintaan konfirmasi Iuran\n"
@@ -36,7 +56,7 @@ Route::get('/about', 'HomeController@about')->name('home.about');
 //             'parse_mode' => 'HTML',
 //             'text' => $text
 //         ]);
-// });
+});
 Route::get('notifikasi', function () {
 
     $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
