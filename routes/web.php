@@ -24,39 +24,39 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/contact', 'HomeController@contact')->name('home.contact');
 Route::get('/about', 'HomeController@about')->name('home.about');
 
-Route::get('mail', function () {
+// Route::get('mail', function () {
     
 
-    $detail = [
-            'name' => 'Harsukh Makwana',
-            'info' => 'Laravel & Python Devloper'
-        ];
+//     $detail = [
+//             'name' => 'Harsukh Makwana',
+//             'info' => 'Laravel & Python Devloper'
+//         ];
 
-        // \Mail::raw('Selamat datang', function ($massage) use($detail){
-        //     $massage->to('fuadi@gmail.com');
-        //     $massage->subject('Selamat anda sudah terdaftar ');
-        // });
+//         // \Mail::raw('Selamat datang', function ($massage) use($detail){
+//         //     $massage->to('fuadi@gmail.com');
+//         //     $massage->subject('Selamat anda sudah terdaftar ');
+//         // });
     
-        \Mail::to('fuadznice@gmail.com')->send(new \App\Mail\NewUserNotification($detail));
+//         \Mail::to('fuadznice@gmail.com')->send(new \App\Mail\NewUserNotification($detail));
     
-        dd("success");
+//         dd("success");
     
   
 
-//     $activity = Telegram::getUpdates();
-//         // return response()->json($activity);
-//     $text = "Permintaan konfirmasi Iuran\n"
-//             . "<b>Dari: </b>\n"
-//             . "<b>Fuadz</b>\n"
-//             . "<b>Message: </b>\n"
-//             . "Percobaan";
+// //     $activity = Telegram::getUpdates();
+// //         // return response()->json($activity);
+// //     $text = "Permintaan konfirmasi Iuran\n"
+// //             . "<b>Dari: </b>\n"
+// //             . "<b>Fuadz</b>\n"
+// //             . "<b>Message: </b>\n"
+// //             . "Percobaan";
 
-//         Telegram::sendMessage([
-//             'chat_id' => 946271444,
-//             'parse_mode' => 'HTML',
-//             'text' => $text
-//         ]);
-});
+// //         Telegram::sendMessage([
+// //             'chat_id' => 946271444,
+// //             'parse_mode' => 'HTML',
+// //             'text' => $text
+// //         ]);
+// });
 Route::get('notifikasi', function () {
 
     $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';

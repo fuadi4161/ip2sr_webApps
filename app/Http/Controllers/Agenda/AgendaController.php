@@ -18,7 +18,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('Media\agenda');
+        return view('Media.agenda');
     }
 
     public function listAgenda()

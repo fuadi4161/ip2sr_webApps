@@ -7,9 +7,6 @@
 @component('mail::button',['url'  => 'https://ip2sr.site/login'])
     Go to login
 @endcomponent
-@component('mail::button',['url'  => 'https://bit.ly/Apps_download'])
-    Go to download Apps
-@endcomponent
 
 Thanks,<br>
 {{config('app.name')}}
