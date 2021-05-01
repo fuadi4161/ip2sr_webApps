@@ -71,12 +71,12 @@
 <!-- middle -->
 <div class="middle py-5" id="call">
     <div class="container py-lg-3">
-        <div class="welcome-left text-center py-md-5 py-3 mt-5 mb-5">
           @foreach ($moto as $motos)
-          <h3>{{$motos->title}}</h3>
-          <h4 style="color: white;">"{{$motos->deskripsi}}" </h4>
+          <div class="welcome-left text-center py-md-5 py-3 mt-5 mb-5">
+            <h3>{{$motos->title}}</h3>
+            <h4 style="color: white;">"{{$motos->deskripsi}}" </h4>
+          </div>
           @endforeach
-        </div>
     </div>
 </div>
 <!-- //middle -->
