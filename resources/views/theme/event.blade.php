@@ -13,7 +13,7 @@
                   <div class="carousel-inner">
                     @foreach ($eventdetail as $loop => $slider)
                       @if ($events->id == $slider->event_id )
-                      <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}" data-interval="3000" style="width: 380px; height:250px">
+                      <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}" data-interval="3000">
                         <img src="{{asset('galery/'.$slider->foto)}}" class="d-block w-100" alt="...">
                       </div>
                           
