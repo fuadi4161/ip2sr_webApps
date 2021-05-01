@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use App\User;
 use App\UserPosision;
 use App\HasRole;
+use App\Mail\NewUserNotification;
 
 class HomeController extends Controller
 {
@@ -72,15 +73,6 @@ class HomeController extends Controller
         $posision->posision_id = 2;
         $posision->save();
 
-
-
-        // $wifi = new StatusLangganan;
-        // $wifi->user_id =$userwifi->id;
-        // $wifi->wifi_id = 2;
-        // $wifi->save();
-
-        
-
         $hasrole = new HasRole;
         $hasrole->role_id = 8;
         $hasrole->model_type = 'App\User';
@@ -93,7 +85,7 @@ class HomeController extends Controller
             'password'=> $request->password,
         ]);
 
-        \Mail::to($request->email)->send(new \App\Mail\NewUserNotification($detail));
+        \Mail::to($request->email)->send(new \App\Mail\NewUserNotification());
 
 
 
