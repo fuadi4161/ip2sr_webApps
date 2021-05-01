@@ -52,9 +52,8 @@ class HomeController extends Controller
     }
     public function contact()
     {
-        $langganan =DB::table('langanan')->get();
 
-        return view('contact', compact('langganan'));
+        return view('contact');
     }
     public function registrasi(Request $request)
     {
