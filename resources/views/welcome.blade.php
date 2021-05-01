@@ -71,12 +71,12 @@
 <!-- middle -->
 <div class="middle py-5" id="call">
     <div class="container py-lg-3">
+        <div class="welcome-left text-center py-md-5 py-3 mt-5 mb-5">
           @foreach ($moto as $motos)
-          <div class="welcome-left text-center py-md-5 py-3 mt-5 mb-5">
-            <h3>{{$motos->title}}</h3>
-            <h4 style="color: white;">"{{$motos->deskripsi}}" </h4>
-          </div>
+          <h3>{{$motos->title}}</h3>
+          <h4 style="color: white;">"{{$motos->deskripsi}}" </h4>
           @endforeach
+        </div>
     </div>
 </div>
 <!-- //middle -->
@@ -110,7 +110,7 @@
     <h3 class="title-big mb-lg-5 mb-4 text-center">Team Member</h3>
       <div class="grids-area-hny main-cont-wthree-fea row">
         @foreach ($organisasi as $pejabat)
-        <div class="col-lg-3 col-md-6 grids-feature">
+        <div class="col-lg-3 col-md-6 mb-5 grids-feature">
             <div class="area-box">
                 <img src="{{asset('assets/images/organisasi/'.$pejabat->foto)}}" alt="burger logo" width="70%">
                 <h4><a href="#feature" class="title-head">{{$pejabat->pangkat}}</a></h4>
