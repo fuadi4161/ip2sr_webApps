@@ -12,9 +12,13 @@
                 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                     @foreach ($eventdetail as $loop => $slider)
-                    <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}" data-interval="3000" style="width: 380px; height:250px">
-                      <img src="{{asset('galery/'.$slider->foto)}}" class="d-block w-100" alt="...">
-                    </div>
+                      @if ($event->id == $slider->event_id )
+                      <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}" data-interval="3000" style="width: 380px; height:250px">
+                        <img src="{{asset('galery/'.$slider->foto)}}" class="d-block w-100" alt="...">
+                      </div>
+                          
+                          
+                      @endif
                     @endforeach
                     <!-- <div class="carousel-item" data-interval="2000">
                       <img src="{{asset('assets/images/events/event2.jpg')}}" class="d-block w-100" alt="...">
