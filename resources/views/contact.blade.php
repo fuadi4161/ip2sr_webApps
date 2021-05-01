@@ -182,7 +182,7 @@ Author URL: http://w3layouts.com
                             <input type="text"  name="password" id="w3lName" placeholder="Password*" required="">
                             </div>
                             <div class="form-group mb-2">
-                            <select class="form-control" id="exampleFormControlSelect1" require>
+                            <select class="form-control mb-2" id="exampleFormControlSelect1" require>
                               <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
                               <option value="2"  name="status_langganan">150k 2 Mbps</option>
                               <option value="3"  name="status_langganan">200k 2.5 Mbps</option>
