@@ -22,7 +22,7 @@ Author URL: http://w3layouts.com
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
         <h1> <a class="navbar-brand" href="{{ route('home')}}">
-            <img src="web/images/logowebipsr.v2.png" alt="burger logo"width="35px" /> IP2SR
+            <img src="web/images/Logowebipsr.v2.png" width="35px" /> IP2SR
             </a></h1>
           <!-- if logo is image enable this   
   <a class="navbar-brand" href="#index.html">
@@ -172,12 +172,17 @@ Author URL: http://w3layouts.com
                                     required="">
                                 <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
                             </div> -->
+                            <div class="form-grid">
                             <input type="text" name="name" id="w3lName" placeholder="Name*" required="">
+                            </div>
+                            <div class="form-grid">
                             <input type="text" name="email" id="w3lName" placeholder="Email*" required="">
+                            </div>
+                            <div class="form-grid">
                             <input type="text" name="password" id="w3lName" placeholder="Password*" required="">
+                            </div>
                             <div class="form-group">
-                            <label for="exampleFormControlSelect1">Pilih Internet</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" id="exampleFormControlSelect1" require>
                               <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
                               <option value="2"  name="status_langganan">150k 2 Mbps</option>
                               <option value="3"  name="status_langganan">200k 2.5 Mbps</option>
