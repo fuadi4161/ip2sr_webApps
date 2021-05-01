@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Http;
+use App\User;
+use App\UserPosision;
+use App\HasRole;
 
 class HomeController extends Controller
 {
