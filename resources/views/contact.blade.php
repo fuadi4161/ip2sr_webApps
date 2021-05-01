@@ -173,13 +173,13 @@ Author URL: http://w3layouts.com
                                 <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
                             </div> -->
                             <div class="form-grid mb-2">
-                            <input type="text" id="w3lMessage" name="name" id="w3lName" placeholder="Name*" required="">
+                            <input type="text"  name="name" id="w3lName" placeholder="Name*" required="">
                             </div>
                             <div class="form-grid mb-2">
-                            <input type="text" id="w3lMessage" name="email" id="w3lName" placeholder="Email*" required="">
+                            <input type="text"  name="email" id="w3lName" placeholder="Email*" required="">
                             </div>
                             <div class="form- mb-2">
-                            <input type="text" id="w3lMessage" name="password" id="w3lName" placeholder="Password*" required="">
+                            <input type="text"  name="password" id="w3lName" placeholder="Password*" required="">
                             </div>
                             <div class="form-group mb-2">
                             <select class="form-control" id="exampleFormControlSelect1" require>
