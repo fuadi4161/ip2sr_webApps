@@ -17,6 +17,12 @@
 @else
     <section class="ul-contact-detail">
         <div class="row">
+            <div class="col-md-12">
+                        <div class="alert alert-card alert-warning text-center" role="alert">Untuk download Aplikasi klick tombol download! ->>
+                            <a href="https://drive.google.com/drive/folders/1SLcKTkhA25NaQgxVu6uYX1FC_B9O4UxY?usp=sharing"><button class="btn btn-rounded btn-warning ml-3">Download</button></a>
+                            <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                    </div>
             <div class="col-lg-4 col-xl-4">
                 @foreach ($user as $profil)
                     <div class="card bg-dark text-white o-hidden mb-2 "><img style="height: 210px" class="card-img" src="{{asset('assets/images/Card.png')}}" alt="Card image">
