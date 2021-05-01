@@ -150,7 +150,7 @@ Author URL: http://w3layouts.com
 <section class="w3l-about-breadcrumb">
     <div class="breadcrumb-bg breadcrumb-bg-about py-5">
         <div class="container py-lg-5 py-md-3">
-            <h2 class="title">Contact Us</h2>
+            <h2 class="title">Registrasi</h2>
         </div>
     </div>
 </section>
@@ -161,17 +161,32 @@ Author URL: http://w3layouts.com
             <div class="top-map">
                 <div class="row map-content-9">
                     <div class="col-lg-8">
-                        <h3 class="title-big">Get in touch with us</h3>
+                        <h3 class="title-big">Registrasi for account aplication</h3>
                         <p class="mb-4 mt-lg-0 mt-2">Your email address will not be published. Required fields are marked *</p>
-                        <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="text-right">
-                            <div class="form-grid">
+                        <form action="{{ route('home.postreagistrasi')}}" method="POST" class="text-right">
+                        @csrf
+                            <!-- <div class="form-grid">
                                 <input type="text" name="w3lName" id="w3lName" placeholder="Name*" required="">
                                 <input type="email" name="w3lSender" id="w3lSender" placeholder="Email*" required="">
                                 <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Phone number*"
                                     required="">
                                 <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
-                            </div>
-                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Message"></textarea>
+                            </div> -->
+                            <input type="text" name="name" id="w3lName" placeholder="Name*" required="">
+                            <input type="text" name="email" id="w3lName" placeholder="Email*" required="">
+                            <input type="text" name="password" id="w3lName" placeholder="Password*" required="">
+                            <div class="form-group">
+                            <label for="exampleFormControlSelect1">Pilih Internet</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
+                              <option value="2"  name="status_langganan">150k 2 Mbps</option>
+                              <option value="3"  name="status_langganan">200k 2.5 Mbps</option>
+                              <option value="4"  name="status_langganan">250k 3 Mbps</option>
+                              <option value="5"  name="status_langganan">300k 3.5 Mbps</option>
+                              <option value="6"  name="status_langganan">400k 6 Mbps</option>
+                            </select>
+                          </div>
+                            <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Message"></textarea> -->
                             <button type="submit" class="btn btn-primary btn-style mt-3">Submit</button>
                         </form>
                     </div>
@@ -189,11 +204,11 @@ Author URL: http://w3layouts.com
     </div>
 </section>
 <!-- //contacts -->
-<div class="map">
+<!-- <div class="map">
     <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1205.9979085256828!2d110.27034812922747!3d-7.691432070614236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af54aaa3b1c37%3A0x7f179d8eb0898853!2sGedung%20TEA%20(Tempat%20Evakuasi%20Akhir)%20Desa%20Bligo!5e1!3m2!1sid!2sid!4v1612567183150!5m2!1sid!2sid"
         frameborder="0" style="border:0" allowfullscreen=""></iframe>
-</div>
+</div> -->
 <!-- footer -->
 @include('theme.footer')
 <!-- //footer -->

@@ -21,7 +21,8 @@ Auth::routes();
 
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/contact', 'HomeController@contact')->name('home.contact');
+Route::get('/registrasi', 'HomeController@contact')->name('home.registrasi');
+Route::post('/registrasipost', 'HomeController@registrasi')->name('home.postreagistrasi');
 Route::get('/about', 'HomeController@about')->name('home.about');
 
 // Route::get('mail', function () {

@@ -22,7 +22,7 @@ Author URL: http://w3layouts.com
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
       <h1> <a class="navbar-brand" href="{{ route('home')}}">
-            <img src="web/images/logowebipsr.v2.png" alt="burger logo"width="35px" /> IP2SR
+            <img src="web/images/Logowebipsr.v2.png" width="35px" /> IP2SR
             </a></h1>
           <!-- if logo is image enable this   
   <a class="navbar-brand" href="#index.html">

@@ -13,6 +13,7 @@ use Session;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Mail\NewUserNotification;
 
 use Telegram;
 

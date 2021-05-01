@@ -52,7 +52,50 @@ class HomeController extends Controller
     }
     public function contact()
     {
-        return view('contact');
+        $langganan =DB::table('langanan')->get();
+
+        return view('contact', compact('langganan'));
+    }
+    public function registrasi(Request $request)
+    {
+        $userwifi = new User;
+        $userwifi->name = $request->name;
+        $userwifi->email = $request->email;
+        $userwifi->password = bcrypt($request->password);
+        $userwifi->status_langganan = $request->status_langganan;
+        $userwifi->save();
+
+        $posision = new UserPosision;
+        $posision->user_id = $userwifi->id;
+        $posision->posision_id = 2;
+        $posision->save();
+
+
+
+        // $wifi = new StatusLangganan;
+        // $wifi->user_id =$userwifi->id;
+        // $wifi->wifi_id = 2;
+        // $wifi->save();
+
+        
+
+        $hasrole = new HasRole;
+        $hasrole->role_id = 8;
+        $hasrole->model_type = 'App\User';
+        $hasrole->model_id = $userwifi->id;
+        $hasrole->save();
+
+        DB::table('registrasi')->insert([
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'password'=> $request->password,
+        ]);
+
+        \Mail::to($request->email)->send(new \App\Mail\NewUserNotification($detail));
+
+
+
+        return back();
     }
     public function about()
     {
