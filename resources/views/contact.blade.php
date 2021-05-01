@@ -40,12 +40,12 @@ Author URL: http://w3layouts.com
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item @@about__active">
+                <!-- <li class="nav-item @@about__active">
                     <a class="nav-link" href="{{ route('home.about')}}">About</a>
                 </li>
                 <li class="nav-item @@contact__active active">
                     <a class="nav-link" href="{{ route('home.contact')}}">Contact</a>
-                </li>
+                </li> -->
                 <li class="nav-item dropdown @@pages__active">
                   @auth
 
