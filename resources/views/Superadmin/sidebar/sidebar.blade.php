@@ -32,6 +32,7 @@
                     </li>
                     <li class="Ul_li--hover"><a class="has-arrow" href="#"><i class="nav-icon i-Line-Chart-2"></i><span class="item-name text-15 text-muted">Kalender</span></a>
                         <ul class="mm-collapse">
+                            <li class="nav-item"><a href="{{ route('super.kalendar')}}"><i class="text-20 i-Statistic mr-2"></i><span class="item-name">kalendar</span></a></li>
                             <li class="nav-item"><a href="{{ route('super.event')}}"><i class="text-20 i-Statistic mr-2"></i><span class="item-name">Events</span></a></li>
                             <li class="item-name"><a href="{{route('super.agenda')}}"><i class="text-20 i-Statistic mr-2"></i><span class="item-name">Agenda</span></a></li>
                         </ul>

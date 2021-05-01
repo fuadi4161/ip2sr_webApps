@@ -15,17 +15,35 @@
                 <!-- content goes here-->
                 <section class="ul-todo-list-content">
                     <div class="ul-todo-sidebar">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="pr-3 pb-3"><i class="todo-sidebar-close i-Close pb-3 text-right" data-sidebar-toggle="main"></i>
-                                    <!-- Large modal-->
-                                    <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Berita</button>
-                                    <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Card Payment</button>
-                                    <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Event</button>
-                                    
+                        <div class="row">
+                            <div class="col mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="pr-3 pb-3"><i class="todo-sidebar-close i-Close pb-3 text-right" data-sidebar-toggle="main"></i>
+                                            <!-- Large modal-->
+                                            <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Berita</button>
+                                            <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Card Payment</button>
+                                            <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Event</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="pr-3 pb-3"><i class="todo-sidebar-close i-Close pb-3 text-right" data-sidebar-toggle="main"></i>
+                                            <!-- Large modal-->
+                                            <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Moto</button>
+                                            <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add gallery</button>
+                                            {{-- <button class="btn btn-primary btn-block mb-4" type="button" data-toggle="modal" data-target=".bd-example-modal-lg">Add Event</button> --}}
+                                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <form id="addUser" action="">

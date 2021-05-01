@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class Kalendar extends Model
 {
-    protected $table = "agenda";
+    protected $table = "kalender";
     protected $fillable = ['deskripsi','title', 'start', 'end', 'allDay', 'color','textColor'];
 }

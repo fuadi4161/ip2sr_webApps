@@ -39,85 +39,6 @@
     </div>
 </div>
 
-   <div id="dialog" class="modal" tabindex="-1">
-       <form id="dayClick" method="post" action="{{ route('super.agenda-add')}}">
-       @csrf
-           <div class="card-body">
-               <div class="form-row">
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label" for="inputEmail1">Judul Agenda:</label>
-                       <input class="form-control" type="text" name="title" placeholder="Masukkan Judul Event" required="required"/><small class="ul-form__text form-text">
-                           Please enter title event
-                       </small>
-                   </div>
-               </div>
-               <div class="custom-separator"></div>
-               <div class="form-row">
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label">Mulai Agenda: </label>
-                       <div class="input-right-icon">
-                           <input class="form-control start" type="text" id="start" name="start" required="required" /> <b name="" class="start"></b> <span class="span-right-input-icon"></span>
-                       </div><small class="ul-form__text form-text">
-                           Please enter start
-                       </small>
-                   </div>
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label">Selesai Agenda:</label>
-                       <div class="input-right-icon">
-                           <input class="form-control" type="text" id="end" name="end"  required="required" /><span class="span-right-input-icon"></span>
-                       </div><small class="ul-form__text form-text">
-                           Please enter end event
-                       </small>
-                   </div>
-               </div>
-               <div class="custom-separator"></div>
-               <div class="form-row">
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label">Background Agenda:</label>
-                       <div class="input-right-icon">
-                           <input class="form-control" type="color" name="color"  required="required" /><span class="span-right-input-icon"></span>
-                       </div><small class="ul-form__text form-text">
-                           Please enter color
-                       </small>
-                   </div>
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label">Warna text Agenda:</label>
-                       <div class="input-right-icon">
-                           <input class="form-control" type="color" name="textColor" placeholder="Enter your postcode" required="required"/><span class="span-right-input-icon"></span>
-                       </div><small class="ul-form__text form-text">
-                           Please enter color
-                       </small>
-                   </div>
-               </div>
-               <div class="custom-separator"></div>
-               <div class="form-row">
-                   <div class="form-group col-md-6">
-                       <label class="ul-form__label" for="inputEmail5">Type Agenda:</label>
-                       <div class="ul-form__radio-inline">
-                           <label class="ul-radio__position radio radio-primary form-check-inline">
-                               <input type="radio" name="allDay" value="1" /><span class="ul-form__radio-font">All Day</span><span class="checkmark"></span>
-                           </label>
-                           <label class="ul-radio__position radio radio-primary">
-                               <input type="radio" name="allDay" value="0" /><span class="ul-form__radio-font">Partial</span><span class="checkmark"></span>
-                           </label>
-                       </div><small class="ul-form__text form-text">
-                           Please select type agenda
-                       </small>
-                   </div>
-               </div>
-           </div>
-           <div class="card-footer">
-               <div class="mc-footer">
-                   <div class="row">
-                       <div class="col-lg-12">
-                           <button class="btn btn-primary m-1 footer-delete-right" type="submit">save</button>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </form>
-       <!--  end::form -->
-   </div>
    
    <div class="modal fade events" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
        <div class="modal-dialog modal-lg">
@@ -135,6 +56,12 @@
                                        <label class="ul-form__label" for="inputEmail1">Judul Agenda:</label>
                                        <input class="form-control" type="text" name="title" placeholder="Masukkan Judul Event" required="required"/><small class="ul-form__text form-text">
                                            Please enter title event
+                                       </small>
+                                   </div>
+                                   <div class="form-group col-md-6">
+                                       <label class="ul-form__label" for="inputEmail1">Deskripsi Agenda:</label>
+                                       <input class="form-control" type="text" name="deskripsi" placeholder="Masukkan Deskripsi Event" required="required"/><small class="ul-form__text form-text">
+                                           Please enter description event
                                        </small>
                                    </div>
                                </div>

@@ -41,36 +41,24 @@
 <!-- //banner section -->
 
 @include('theme.event')
-
 <!-- /bottom-grids-->
 <section class="w3l-bottom-grids-6 py-5">
     <div class="container py-lg-5 py-md-4 py-2">
       <h3 class="title-big mb-lg-5 mb-4 text-center">Agenda</h3>
         <div class="grids-area-hny main-cont-wthree-fea row">
+          @foreach ($agenda as $item)
             <div class="col-lg-4 col-md-6 grids-feature">
-                <div class="area-box">
-                    {{-- <img src="web/images/burger.png" alt="burger logo" width="35px"> --}}
-                    <h4><a href="#feature" class="title-head">Acara menyambut Tahun baru 2021</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a class="btn btn-text">Tanggal Upload : 12/12/2020</a>
-                </div>
+              <div class="area-box">
+                
+                  {{-- <img src="web/images/burger.png" alt="burger logo" width="35px"> --}}
+                  <h4><a href="#feature" class="title-head">{{$item->title}}</a></h4>
+                  <p class="mb-3">{{$item->deskripsi}}</p>
+                  <p class="mb-3">Dilaksanakan : {{$item->start}}</p>
+                  <a class="btn btn-text">Tanggal Upload : {{$item->created_at}}</a>
+              </div>
             </div>
-            <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-4">
-                <div class="area-box">
-                    {{-- <img src="web/images/snack.png" alt="burger logo" width="35px"> --}}
-                    <h4><a href="#feature" class="title-head">Acara menyambut Tahun baru 2021</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a href="menu.html" class="btn btn-text">Tanggal Upload : 12/12/2020</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-4">
-                <div class="area-box">
-                    {{-- <img src="web/images/snack.png" alt="burger logo" width="35px"> --}}
-                    <h4><a href="#feature" class="title-head">Acara menyambut Tahun baru 2021</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a href="menu.html" class="btn btn-text">Tanggal Upload : 12/12/2020</a>
-                </div>
-            </div>
+          @endforeach
+            
         </div>
     </div>
 </section>
@@ -84,9 +72,10 @@
 <div class="middle py-5" id="call">
     <div class="container py-lg-3">
         <div class="welcome-left text-center py-md-5 py-3 mt-5 mb-5">
-            <h3>The Right Ingredients</h3>
-            <h4 style="color: white;">" Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ea tempora fugit 
-              distinctio repudiandae temporibus! " </h4>
+          @foreach ($moto as $motos)
+          <h3>{{$motos->title}}</h3>
+          <h4 style="color: white;">"{{$motos->deskripsi}}" </h4>
+          @endforeach
         </div>
     </div>
 </div>
@@ -97,94 +86,19 @@
       <div class="container py-lg-4 py-md-3">
         <h3 class="title-big mb-lg-5 mb-4 text-center">Gallery</h3>
         <div class="row no-gutters masonry">
+          @foreach ($galery as $photo)
           <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b1.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
+            <a href="{{url('galery/'. $photo->foto)}}" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
               data-id="lion">
-              <img src="web/images/b1.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
+              <img src="{{url('galery/'. $photo->foto)}}" class="img-fluid radius-image-full" />
               <div class="content-overlay"></div>
               <div class="content-details fadeIn-top">
                 <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
+                <h4>View Images Gallery</h4>
               </div>
             </a>
           </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b2.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="camel">
-              <img src="web/images/b2.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b3.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="hippopotamus">
-              <img src="web/images/b3.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b4.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="koala">
-              <img src="web/images/b4.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b5.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="bear">
-              <img src="web/images/b5.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b6.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="rhinoceros">
-              <img src="web/images/b6.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b7.jpg" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
-              data-id="hippopotamus">
-              <img src="web/images/b7.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="web/images/b8.jpg" class="js-img-viwer d-block" data-caption="Galery Ikatan Pemuda Pemudi Ip2sr"
-              data-id="koala">
-              <img src="web/images/b8.jpg" class="img-fluid radius-image-full" alt="burger gallery" />
-              <div class="content-overlay"></div>
-              <div class="content-details fadeIn-top">
-                <span class="fa fa-plus" aria-hidden="true"></span>
-                <h4>Delight your Best</h4>
-              </div>
-            </a>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -195,30 +109,14 @@
   <div class="container py-lg-5 py-md-4 py-2">
     <h3 class="title-big mb-lg-5 mb-4 text-center">Team Member</h3>
       <div class="grids-area-hny main-cont-wthree-fea row">
-          <div class="col-lg-3 col-md-6 grids-feature">
-              <div class="area-box">
-                  <img src="https://i.pinimg.com/564x/b4/9b/c2/b49bc2c26a64da3d61255ff9595c29d0.jpg" alt="burger logo" width="70%">
-                  <h4><a href="#feature" class="title-head">Ketua pemuda</a></h4>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-6 grids-feature mt-md-0 mt-4">
-              <div class="area-box">
-                  <img src="https://i.pinimg.com/564x/b4/9b/c2/b49bc2c26a64da3d61255ff9595c29d0.jpg" alt="burger logo" width="70%">
-                  <h4><a href="#feature" class="title-head">Wakil Ketua</a></h4>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-6 grids-feature mt-md-0 mt-4">
-              <div class="area-box">
-                  <img src="https://i.pinimg.com/564x/b4/9b/c2/b49bc2c26a64da3d61255ff9595c29d0.jpg" alt="burger logo" width="70%">
-                  <h4><a href="#feature" class="title-head">Sekretaris</a></h4>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-6 grids-feature mt-md-0 mt-4">
-              <div class="area-box">
-                  <img src="https://i.pinimg.com/564x/b4/9b/c2/b49bc2c26a64da3d61255ff9595c29d0.jpg" alt="burger logo" width="70%">
-                  <h4><a href="#feature" class="title-head">Bendahara</a></h4>
-              </div>
-          </div>
+        @foreach ($organisasi as $pejabat)
+        <div class="col-lg-3 col-md-6 grids-feature">
+            <div class="area-box">
+                <img src="{{asset('assets/images/organisasi/'.$pejabat->foto)}}" alt="burger logo" width="70%">
+                <h4><a href="#feature" class="title-head">{{$pejabat->pangkat}}</a></h4>
+            </div>
+        </div>
+        @endforeach
       </div>
   </div>
 </section>

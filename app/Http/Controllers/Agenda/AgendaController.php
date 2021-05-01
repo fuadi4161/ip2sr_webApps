@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Agenda;
+use App\Kalendar;
 use Session;
 
 class AgendaController extends Controller
@@ -60,6 +61,7 @@ class AgendaController extends Controller
             return redirect()->back();
         }else{
             Agenda::create($request->all());
+            Kalendar::create($request->all());
 
             Session::flash('error', 'Event gagal disimpan');
             return redirect()->back();

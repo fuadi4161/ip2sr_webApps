@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Events;
+use App\Kalendar;
 use Session;
+use DB;
 
 class EventController extends Controller
 {
@@ -21,9 +23,22 @@ class EventController extends Controller
         return view('Event.index');
     }
 
+    public function kalendar()
+    {
+        return view('Kalendar.kalendar');
+    }
+
     public function listEvents()
     {
+       
         $event = Events::latest()->get();
+        return response()->json($event);
+    }
+
+    public function listKalendar()
+    {
+       
+        $event = Kalendar::latest()->get();
         return response()->json($event);
     }
 
@@ -56,12 +71,14 @@ class EventController extends Controller
         ]);
 
         if ($validation->failed()){
-            Session::flash('success', 'Event berhasil disimpan');
+            Session::flash('error', 'Event gagal disimpan');
             return redirect()->back();
         }else{
-            Events::create($request->all());
 
-            Session::flash('error', 'Event gagal disimpan');
+            Session::flash('success', 'Event berhasil disimpan');
+            Events::create($request->all());
+            Kalendar::create($request->all());
+
             return redirect()->back();
         }
     }

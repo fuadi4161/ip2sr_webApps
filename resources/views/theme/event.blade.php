@@ -2,16 +2,21 @@
     <div class="mobile-info py-lg-3 py-md-4 py-2">
       <h3 class="title-big mb-lg-5 mb-4 mt-3 text-center">Event News</h3>
         <!-- /mobile-info-->
+        @foreach ($event as $events)
         <div class="container">
           <div class="row">
             <div class="col-lg">
               <div class="row mobile-info-inn mx-lg-0">
+                    
+                
                 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
-                    <div class="carousel-item active" data-interval="10000">
-                      <img src="{{asset('assets/images/events/event1.jpg')}}" class="d-block w-100" alt="...">
+                    @foreach ($eventdetail as $loop => $slider)
+                    <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}" data-interval="3000" style="width: 500px; height:300px">
+                      <img src="{{asset('galery/'.$slider->foto)}}" class="d-block w-100" alt="...">
                     </div>
-                    <div class="carousel-item" data-interval="2000">
+                    @endforeach
+                    {{-- <div class="carousel-item" data-interval="2000">
                       <img src="{{asset('assets/images/events/event2.jpg')}}" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
@@ -19,7 +24,7 @@
                     </div>
                     <div class="carousel-item">
                       <img src="{{asset('assets/images/events/event4.jpg')}}" class="d-block w-100" alt="...">
-                    </div>
+                    </div> --}}
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -34,13 +39,12 @@
             </div>
             <div class="col-lg-6 mt-lg-0 mt-4 about-right-faq align-self">
               <h5 class="title-small mb-1">Our story</h5>
-              <h3 class="title-big">Tangkap lele edisi penutupan agustus <span>2020</span></h3>
-              <p class="mt-sm-4 mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                  ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Non quae, consequatur voluptatem ad.</p>
+              <h3 class="title-big">{{$events->title}}</h3>
+              <p class="mt-sm-4 mt-3">{{$events->deskripsi}}</p>
+              </div>
             </div>
           </div>
-        </div>
+          @endforeach
         <!-- //mobile-info-->
     </div>
   </section>

@@ -153,8 +153,11 @@ Route::group(
         Route::get('/event', 'Event\EventController@index')->name('super.event');
         Route::get('/jsonevent', 'Event\EventController@listEvents')->name('super.eventlist');
         Route::post('/event/add', 'Event\EventController@store')->name('super.event-add');
-
-
+        
+        
+        Route::get('/kalendar', 'Event\EventController@kalendar')->name('super.kalendar');
+        Route::get('/jsonkalendar', 'Event\EventController@listKalendar')->name('super.kalendarlist');
+        
         //Berita
         Route::get('/berita', 'Media\MediaController@berita')->name('super.berita');
 
