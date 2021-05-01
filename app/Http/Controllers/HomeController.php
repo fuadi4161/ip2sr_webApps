@@ -85,8 +85,6 @@ class HomeController extends Controller
             'password'=> $request->password,
         ]);
 
-        \Mail::to($request->email)->send(new \App\Mail\NewUserNotification());
-
 
 
         return back();
