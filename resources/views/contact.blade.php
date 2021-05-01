@@ -182,14 +182,14 @@ Author URL: http://w3layouts.com
                             <input type="text"  name="password" id="w3lName" placeholder="Password*" required="">
                             </div>
                             <div class="form-group mb-2">
-                            <select class="form-control mb-2" name="status_langganan"id="exampleFormControlSelect1" require>
-                              <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
-                              <option value="2"  name="status_langganan">150k 2 Mbps</option>
-                              <option value="3"  name="status_langganan">200k 2.5 Mbps</option>
-                              <option value="4"  name="status_langganan">250k 3 Mbps</option>
-                              <option value="5"  name="status_langganan">300k 3.5 Mbps</option>
-                              <option value="6"  name="status_langganan">400k 6 Mbps</option>
-                            </select>
+                            <select class="form-control"  name="status_langganan">
+                                    <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
+                                    <option value="2"  name="status_langganan">150k 2 Mbps</option>
+                                    <option value="3"  name="status_langganan">200k 2.5 Mbps</option>
+                                    <option value="4"  name="status_langganan">250k 3 Mbps</option>
+                                    <option value="5"  name="status_langganan">300k 3.5 Mbps</option>
+                                    <option value="6"  name="status_langganan">400k 6 Mbps</option>
+                                </select>
                           </div>
                             <!-- <textarea name="w3lMessage" id="w3lMessage" placeholder="Message"></textarea> -->
                             <button type="submit" class="btn btn-primary btn-style mt-3">Submit</button>
