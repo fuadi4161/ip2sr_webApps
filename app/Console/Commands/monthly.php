@@ -74,9 +74,9 @@ class monthly extends Command
             DB::table('notifikasi')
             ->insert([
                 'user_id' => $chat->user_id,
-                'judul' => 'Hai..  Assalamualikum.. 👋👋',
-                'deskripsi' => 'Alhamdulillah... gak kerasa sudah awal bulan lagi.. paling lambat tanggal 5 ya.',
-                'date' => Carbon::now()->format('d-MM-YYYY'),
+                'judul' => "Hai.. Assalamualikum.. ",
+                'deskripsi' => "Alhamdulillah... gak kerasa sudah awal bulan lagi.. oiya jangan sampai wifi off karena lupa bayar tagihan listrik yaa. :D",
+                'date' => Carbon::now()->format('d-M-Y'),
                 'status' => false,
             ]);
             }
@@ -109,7 +109,7 @@ class monthly extends Command
 
                                     "title" => 'Hai..  Assalamualikum.. 👋👋 ' ,
 
-                                    "body" => 'Alhamdulillah... gak kerasa sudah awal bulan lagi.. paling lambat tanggal 5 ya.',
+                                    "body" => 'Alhamdulillah... gak kerasa sudah awal bulan lagi.. oiya jangan sampai wifi off karena lupa bayar tagihan listrik yaa..🤭🤭',
 
                                     "sound"=> "default" // required for sound on ios
 
