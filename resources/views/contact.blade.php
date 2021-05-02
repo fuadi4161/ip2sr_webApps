@@ -172,13 +172,13 @@ Author URL: http://w3layouts.com
                                     required="">
                                 <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
                             </div> -->
-                            <div class="form-grid mb-2">
+                            <div class="form mb-2">
                             <input type="text"  name="name" id="w3lName" placeholder="Name*" required="">
                             </div>
-                            <div class="form-grid mb-2">
+                            <div class="form mb-2">
                             <input type="text"  name="email" id="w3lName" placeholder="Email*" required="">
                             </div>
-                            <div class="form- mb-2">
+                            <div class="form mb-2">
                             <input type="text"  name="password" id="w3lName" placeholder="Password*" required="">
                             </div>
                             <div class="form-group mb-2">

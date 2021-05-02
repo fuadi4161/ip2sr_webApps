@@ -82,7 +82,7 @@ class HomeController extends Controller
         DB::table('registrasi')->insert([
             'name'=> $request->name,
             'email'=> $request->email,
-            'password'=> $request->password,
+            'password'=>  bcrypt($request->password),
         ]);
 
 

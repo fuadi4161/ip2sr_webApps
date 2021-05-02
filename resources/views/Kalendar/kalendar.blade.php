@@ -13,8 +13,8 @@
 
 @section('content')
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<div class="cotainer">
-    <div class="row">
+
+    
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
@@ -24,8 +24,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 
    <script>
