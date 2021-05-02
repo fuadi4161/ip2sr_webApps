@@ -172,16 +172,16 @@ Author URL: http://w3layouts.com
                                     required="">
                                 <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject">
                             </div> -->
-                            <div class="form mb-2">
-                            <input type="text"  name="name" id="w3lName" placeholder="Name*" required="">
+                            <div class="form mb-4">
+                            <input type="text"  name="name" placeholder="Username*" required="">
                             </div>
-                            <div class="form mb-2">
-                            <input type="text"  name="email" id="w3lName" placeholder="Email*" required="">
+                            <div class="form mb-4">
+                            <input type="text"  name="email" placeholder="Email*" required="">
                             </div>
-                            <div class="form mb-2">
-                            <input type="text"  name="password" id="w3lName" placeholder="Password*" required="">
+                            <div class="form mb-4">
+                            <input type="text"  name="password" placeholder="Password*" required="">
                             </div>
-                            <div class="form-group mb-2">
+                            <div class="form-group mb-4">
                             <select class="form-control"  name="status_langganan">
                                     <option value="1"  name="status_langganan">100k 1.5 Mbps</option>
                                     <option value="2"  name="status_langganan">150k 2 Mbps</option>
@@ -199,7 +199,7 @@ Author URL: http://w3layouts.com
                         <address>
                             <h5 class="mt-md-5 mt-4">Contact Address</h5>
                             <p><strong>Address :</strong> Jl. Kyai Raden Sahid ,RT01 RW09, Beteng, Bligo, Ngluwar, Magelang, Jawa Tengah</p>
-                            <p class="my-2"><strong>Phone :</strong> <a href="tel:+12 534894364">+12 534894364</a></p>
+                            
                             <p><strong>Email :</strong> <a href="mailto:sidorukunofficial.gmail.com">sidorukunofficial.gmail.com</a></p>
                         </address>
                     </div>
