@@ -123,7 +123,7 @@
 <!-- //footer -->
 <!-- copyright -->
 <div class="cpy-right text-center py-4">
-  <p>© 2020 IP2SR | Develope by <a href="https://www.instagram.com/fuadz_fh/">Fuadz_fh</a> with Laravel 7</a> </p>
+  <p>© 2020 IP2SR | Develope by <a href="https://www.instagram.com/chip_munnk/">chip_munnk</a> with Laravel 7</a> </p>
 </div>
 <!-- //copyright -->
 

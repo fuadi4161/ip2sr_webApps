@@ -5,7 +5,7 @@
 			<p><strong>IP2SR</strong></p>
 			<p>IP2SR adalah sebuah WEB APLICATION untuk manajemen organisasi serta penyimpanan document" penting. <sunt></sunt>
 			</p>
-			<p style="opacity: 0.7">Di rancang dan dikembangkan oleh <a href="https://www.instagram.com/kreakenhoxz/">FUADZ</a> dengan framework Laravel 7</p>
+			<p style="opacity: 0.7">Di rancang dan dikembangkan oleh <a href="https://www.instagram.com/chip_munnk/">chip_munnk</a> dengan framework Laravel 7</p>
 		</div>
 	</div>
 	<div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
