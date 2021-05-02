@@ -28,10 +28,6 @@
         <div class="row align-items-center py-lg-5 py-4 mt-4">
             <div class="col-lg-6 col-sm-12">
                 <h2 class="mb-4">Ikatan Pemuda Pemudi Sido Rukun</h2>
-                <div class="mt-md-5 mt-4">
-                    <a class="btn btn-primary btn-style mr-2" href="menu.html"> Facebook </a>
-                    <a class="btn btn-outline-primary btn-style" href="#call"> Instagram </a>
-                </div>
             </div>
             <div class="col-lg-5">
             </div>
