@@ -161,7 +161,14 @@ Route::group(
         
         //Berita
         Route::get('/berita', 'Media\MediaController@berita')->name('super.berita');
-
+        Route::post('/addberita', 'Media\MediaController@createberita')->name('super.addberita');
+        Route::get('/deleteberita/{id}', 'Media\MediaController@deleteBerita')->name('super.deleteberita');
+        
+        //Gallery
+        Route::post('/addgalery', 'Media\MediaController@addGallery')->name('super.addgalery');
+        Route::get('/deletegalery/{id}', 'Media\MediaController@deleteGallery')->name('super.deletegalery');
+        
+        
         //Agenda
         Route::get('/agenda', 'Agenda\AgendaController@index')->name('super.agenda');
         Route::get('/jsonagenda', 'Agenda\AgendaController@listAgenda')->name('super.agendalist');

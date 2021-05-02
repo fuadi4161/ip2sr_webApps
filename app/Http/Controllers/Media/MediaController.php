@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Media;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use File;
+use App\User;
+use DB;
+use Session;
 
 class MediaController extends Controller
 {
@@ -14,8 +19,14 @@ class MediaController extends Controller
      */
     public function index()
     {
+        
+        $berita = DB::table('berita')->get();
+        $galery = DB::table('galery')->get();
 
-        return view('Medias.berita');
+
+        return view('Medias.berita', compact('berita','galery'));
+
+        
     }
 
     /**
@@ -33,9 +44,74 @@ class MediaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createberita(Request $request)
+    {
+
+        $user = User::find(Auth::user()->id);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalName();
+            $avatar = 'https://ip2sr.site/assets/images/news/' . time() . '.' . $file->getClientOriginalName();
+            $file->move('assets/images/news', $filename);
+            File::delete('assets/images/news' . $user->dokumen);
+        }
+
+
+        DB::table('berita')->insert([
+            'author_id' => Auth::user()->id,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'images' => $avatar,
+            'link' => $request->link,
+            'backgrund_image' => $request->images,
+        ]);
+
+        // return response()->json($request);
+
+        return back()->with( Session::flash('success', 'berita berhasil ditambahkan.'));
+    }
+
+    public function deleteBerita($id){
+
+        DB::table('berita')->where('id',$id)->delete();
+
+        return back()->with( Session::flash('success', 'berita berhasil dihapus.'));
+    }
+
+    public function editMoto()
     {
         //
+    }
+
+    public function addGallery(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $filename = time() . '.' . $file->getClientOriginalName();
+            $avatar = 'https://ip2sr.site/assets/images/news/' . time() . '.' . $file->getClientOriginalName();
+            $file->move('assets/images/news', $filename);
+            File::delete('assets/images/news' . $user->dokumen);
+        }
+
+
+        DB::table('galery')->insert([
+            'user_id' => Auth::user()->id,
+            'caption' => $request->caption,
+            'foto' => $filename,
+            'url' =>  $avatar,
+        ]);
+
+        return back()->with( Session::flash('success', 'Foto berhasil di simpan.'));
+    }
+
+    public function deleteGallery($id){
+
+        DB::table('galery')->where('id',$id)->delete();
+
+        return back()->with( Session::flash('success', 'berhasil dihapus.'));
     }
 
     /**
