@@ -25,6 +25,12 @@ Route::get('/registrasi', 'HomeController@contact')->name('home.contact');
 Route::post('/registrasipost', 'HomeController@registrasi')->name('home.postreagistrasi');
 Route::get('/about', 'HomeController@about')->name('home.about');
 
+
+Route::get('/arp', 'ARP\ArpController@getAll');
+Route::get('/arp/{id}', 'ARP\ArpController@detail');
+Route::get('/arp/disable/{id}', 'ARP\ArpController@disable');
+Route::get('/arp/enable/{id}', 'ARP\ArpController@enable');
+
 // Route::get('mail', function () {
     
 
@@ -58,60 +64,60 @@ Route::get('/about', 'HomeController@about')->name('home.about');
 // //             'text' => $text
 // //         ]);
 // });
-Route::get('notifikasi', function () {
+// Route::get('notifikasi', function () {
 
-    $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+//     $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 
-    $token_1 = 'dWHF6jCtRmqMPKiYxmbjvs:APA91bGuLasc13vhD7lTrkBt8sbBnEDuvQoZSHdYXPuRVcSsdlRhbA7rttO7BQtZ49iUaxBZCBAtd-qPSn72pcJSwU76BiV2c15O8CZchEf3HLO3eZpTuPVAnfLMSMrr6JRU4Th5Alq6';
+//     $token_1 = 'dWHF6jCtRmqMPKiYxmbjvs:APA91bGuLasc13vhD7lTrkBt8sbBnEDuvQoZSHdYXPuRVcSsdlRhbA7rttO7BQtZ49iUaxBZCBAtd-qPSn72pcJSwU76BiV2c15O8CZchEf3HLO3eZpTuPVAnfLMSMrr6JRU4Th5Alq6';
 
-    $data = [
+//     $data = [
 
-        "registration_ids" => [
-            $token_1
-        ],
+//         "registration_ids" => [
+//             $token_1
+//         ],
 
-        "notification" => [
+//         "notification" => [
 
-            "title" => 'Terima kasih..',
+//             "title" => 'Terima kasih..',
 
-            "body" => 'Iuran Anda Sudah di konfirmasi',
+//             "body" => 'Iuran Anda Sudah di konfirmasi',
 
-            "image" => 'https://i.pinimg.com/564x/ba/0b/0e/ba0b0eac27f6f88a70c084df11c52eab.jpg',
+//             "image" => 'https://i.pinimg.com/564x/ba/0b/0e/ba0b0eac27f6f88a70c084df11c52eab.jpg',
 
-            "sound" => 'stoneSkimingDay4', // required for sound on ios
+//             "sound" => 'stoneSkimingDay4', // required for sound on ios
 
-        ],
+//         ],
 
-    ];
+//     ];
 
-    $dataString = json_encode($data);
+//     $dataString = json_encode($data);
 
-    $headers = [
+//     $headers = [
 
-        'Authorization: key=' . $SERVER_API_KEY,
+//         'Authorization: key=' . $SERVER_API_KEY,
 
-        'Content-Type: application/json',
+//         'Content-Type: application/json',
 
-    ];
+//     ];
 
-    $ch = curl_init();
+//     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+//     curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
 
-    curl_setopt($ch, CURLOPT_POST, true);
+//     curl_setopt($ch, CURLOPT_POST, true);
 
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+//     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+//     curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
-    $response = curl_exec($ch);
+//     $response = curl_exec($ch);
 
-    dd($response);
-});
+//     dd($response);
+// });
 
 
 
