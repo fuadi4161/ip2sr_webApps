@@ -26,7 +26,7 @@ class Connector {
 
     public function __construct() {
         $this->host = "id-22.hostddns.us";
-        $this->port = 4740;
+        $this->port = 8728;
         $this->username = "admin";
         $this->password = "7659872";
         $this->initStream();
