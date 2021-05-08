@@ -28,7 +28,7 @@ class Connector {
         $this->host = '10.94.73.50';
         $this->port = 8728;
         $this->username = 'admin';
-        $this->password = '7659872';
+        $this->password = 7659872;
         $this->initStream();
     }
 
