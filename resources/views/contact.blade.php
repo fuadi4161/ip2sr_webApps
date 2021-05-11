@@ -357,6 +357,10 @@
 <script src="web/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
 
+<script src="{{ asset('web/js/bootstrap.min.js')}}"></script>
+<script src="{{ asset('js/iziToast.js')}}"></script>
+<script src="{{ asset('js/iziToast.min.js')}}"></script>
+
 @if(Session::has('berhasil'))
 <script>
         iziToast.success({
