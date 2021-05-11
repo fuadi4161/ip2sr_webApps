@@ -27,7 +27,7 @@
 							<div class="text w-100">
 								<h2>Selamat Datang di Pendaftaran</h2>
 								<p>Apakah anda sudah punya akun?</p>
-								<a href="index.html" class="btn btn-white btn-outline-white">Masuk</a>
+								<a href="{{ route('login') }}" class="btn btn-white btn-outline-white">Masuk</a>
 							</div>
 			      		</div>
 						<div class="login-wrap p-4 p-lg-5">
@@ -76,6 +76,21 @@
     <script src="{{asset('web/loginV3/js/popper.js')}}"></script>
     <script src="{{asset('web/loginV3/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('web/loginV3/js/main.js')}}"></script>
+
+    <script src="{{ asset('web/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/iziToast.js')}}"></script>
+    <script src="{{ asset('js/iziToast.min.js')}}"></script>
+    <script>
+        @if(Session::has('success'))
+
+            iziToast.success({
+                title: 'OK',
+                message: '{{ session('success') }}',
+                position: 'topRight',
+                transitionIn: 'fadeInUp',
+            });
+        @endif	
+    </script>
 
 	</body>
 </html>

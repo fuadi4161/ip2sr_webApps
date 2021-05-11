@@ -27,7 +27,7 @@
 							<div class="text w-100">
 								<h2>Selamat datang di halaman masuk</h2>
 								<p>Apakah anda belum punya akun?</p>
-								<a href="sigup.html" class="btn btn-white btn-outline-white">Daftar</a>
+								<a href="{{ route('register') }}" class="btn btn-white btn-outline-white">Daftar</a>
 							</div>
 			      </div>
 						<div class="login-wrap p-4 p-lg-5">
