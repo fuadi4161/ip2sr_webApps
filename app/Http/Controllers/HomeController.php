@@ -10,6 +10,7 @@ use App\User;
 use App\UserPosision;
 use App\HasRole;
 use App\Mail\NewUserNotification;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -90,6 +91,25 @@ class HomeController extends Controller
             'name'=> $request->name,
             'email'=> $request->email,
             'password'=>  bcrypt($request->password),
+        ]);
+
+        $detail = [
+            'name' => $request->name,
+            'info' => 'Laravel & Python Devloper'
+        ];
+    
+        \Mail::to($request->email)->send(new \App\Mail\NewUserNotification($detail));
+
+        $text = "Pendaftaran user baru\n"
+            . "<b>Dari: </b>\n"
+            . "<b>$request->name</b>\n"
+            . "<b>Email: </b>\n"
+            . "$request->email";
+
+        Telegram::sendMessage([
+            'chat_id' => 946271444,
+            'parse_mode' => 'HTML',
+            'text' => $text
         ]);
 
         return back()->with( Session::flash('berhasil', 'Data anda sudah kami terima , Silahkan login'));
