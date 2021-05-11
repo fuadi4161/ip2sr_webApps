@@ -11,6 +11,7 @@ use App\UserPosision;
 use App\HasRole;
 use App\Mail\NewUserNotification;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
