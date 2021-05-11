@@ -12,6 +12,7 @@ use App\HasRole;
 use App\Mail\NewUserNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class HomeController extends Controller
 {
