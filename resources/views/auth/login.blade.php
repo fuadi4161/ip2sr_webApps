@@ -8,8 +8,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="web/css/loginv3.css">
+
+	<link rel="stylesheet" href="{{asset('web/loginV3/loginv3.css')}}">
 
 	</head>
 	<body>
@@ -74,10 +74,10 @@
 		</div>
 	</section>
 
-	<script src="{{asset('web/jsloginV3/jquery.min.js')}}"></script>
-  <script src="{{asset('web/jsloginV3/popper.js')}}"></script>
-  <script src="{{asset('web/jsloginV3/bootstrap.min.js')}}"></script>
-  <script src="{{asset('web/jsloginV3/main.js')}}"></script>
+	<script src="{{asset('web/loginV3/js/jquery.min.js')}}"></script>
+  <script src="{{asset('web/loginV3/js/popper.js')}}"></script>
+  <script src="{{asset('web/loginV3/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('web/loginV3/js/main.js')}}"></script>
 
 	</body>
 </html>
