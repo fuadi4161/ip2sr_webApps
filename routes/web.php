@@ -25,12 +25,6 @@ Route::get('/registrasi', 'HomeController@contact')->name('home.contact');
 Route::post('/registrasipost', 'HomeController@registrasi')->name('home.postreagistrasi');
 Route::get('/about', 'HomeController@about')->name('home.about');
 
-
-Route::get('/arp', 'ARP\ArpController@getAll');
-Route::get('/arp/{id}', 'ARP\ArpController@detail');
-Route::get('/arp/disable/{id}', 'ARP\ArpController@disable');
-Route::get('/arp/enable/{id}', 'ARP\ArpController@enable');
-
 // Route::get('mail', function () {
     
 

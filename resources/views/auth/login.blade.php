@@ -1,50 +1,83 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <!-- Required meta tags -->
+  	<title>Login</title>
     <meta charset="utf-8">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="web/css/loginV2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Login</title>
-  </head>
-  <body>
-          <div class="login-div">
-              <div class="logo"></div>
-              <div class="title">IP2SR</div>
-              <div class="sub-title">Ikatan Pemuda Pemudi Sido Rukun</div>
-              @if (session('status'))
-                <div class="mb-4 mt-2 font-medium text-sm text-green-600">
-                    {{ session('status') }}
-                </div>
-            @endif
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-              <div class="fields">
-                <div class="username">
-                    <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
-                    </svg>
-                <input type="email" class="user-input form-control @error('email') is-invalid @enderror" placeholder="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/></div>
-                <div class="password">
-                    <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
-                    </svg>
-                <input type="password" class=" pass-input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="password" />
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-              </div>
-              <button class="signin-button" type="submit">Login</button>
-              <div class="link">
-                <a href="#">Forgot password?</a> or <a href="{{ route('register') }}">Sign up</a>
-              </div>
-            </form>
-            </div>
-  </body>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{{asset('web/css/loginV3.css')}}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+							<div class="text w-100">
+								<h2>Selamat datang di halaman masuk</h2>
+								<p>Apakah anda belum punya akun?</p>
+								<a href="sigup.html" class="btn btn-white btn-outline-white">Daftar</a>
+							</div>
+			      </div>
+						<div class="login-wrap p-4 p-lg-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Masuk</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+								</div>
+			      	</div>
+						<form method="POST" action="{{ route('login') }}" class="signin-form">
+              @csrf	
+		      		<div class="form-group mb-3">
+		      			<label class="label" for="name">Email</label>
+		      			<input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+		      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              	<input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
+		            </div>
+		            <div class="form-group">
+		            	<button type="submit" class="form-control btn btn-primary submit px-3">Masuk</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="#">Forgot Password</a>
+									</div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{{asset('web/jsloginV3/jquery.min.js')}}"></script>
+  <script src="{{asset('web/jsloginV3/popper.js')}}"></script>
+  <script src="{{asset('web/jsloginV3/bootstrap.min.js')}}"></script>
+  <script src="{{asset('web/jsloginV3/main.js')}}"></script>
+
+	</body>
 </html>
