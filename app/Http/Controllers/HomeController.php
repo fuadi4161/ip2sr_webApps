@@ -61,6 +61,13 @@ class HomeController extends Controller
     }
     public function registrasi(Request $request)
     {
+
+        Validator::make($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8'],
+        ]);
+
         $userwifi = new User;
         $userwifi->name = $request->name;
         $userwifi->email = $request->email;
@@ -85,9 +92,7 @@ class HomeController extends Controller
             'password'=>  bcrypt($request->password),
         ]);
 
-
-
-        return back();
+        return back()->with( Session::flash('berhasil', 'Data anda sudah kami terima , Silahkan login'));
     }
     public function about()
     {

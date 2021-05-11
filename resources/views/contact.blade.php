@@ -1,11 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
+
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,6 +11,10 @@ Author URL: http://w3layouts.com
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="web/css/style-starter.css">
+    
+    <link rel="stylesheet" href="{{ asset('css/iziToast.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/iziToast.css')}}">
+
   </head>
   <body>
 <!--header-->
@@ -24,10 +24,6 @@ Author URL: http://w3layouts.com
         <h1> <a class="navbar-brand" href="{{ route('home')}}">
             <img src="web/images/Logowebipsr.v2.png" width="35px" /> IP2SR
             </a></h1>
-          <!-- if logo is image enable this   
-  <a class="navbar-brand" href="#index.html">
-      <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-  </a> -->
           <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
               data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
               aria-label="Toggle navigation">
@@ -40,12 +36,6 @@ Author URL: http://w3layouts.com
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <!-- <li class="nav-item @@about__active">
-                    <a class="nav-link" href="{{ route('home.about')}}">About</a>
-                </li>
-                <li class="nav-item @@contact__active active">
-                    <a class="nav-link" href="{{ route('home.contact')}}">Contact</a>
-                </li> -->
                 <li class="nav-item dropdown @@pages__active">
                   @auth
 
@@ -208,13 +198,7 @@ Author URL: http://w3layouts.com
         </div>
     </div>
 </section>
-<!-- //contacts -->
-<!-- <div class="map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1205.9979085256828!2d110.27034812922747!3d-7.691432070614236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7af54aaa3b1c37%3A0x7f179d8eb0898853!2sGedung%20TEA%20(Tempat%20Evakuasi%20Akhir)%20Desa%20Bligo!5e1!3m2!1sid!2sid!4v1612567183150!5m2!1sid!2sid"
-        frameborder="0" style="border:0" allowfullscreen=""></iframe>
-</div> -->
-<!-- footer -->
+
 @include('theme.footer')
 <!-- //footer -->
 <!-- copyright -->
@@ -372,6 +356,17 @@ Author URL: http://w3layouts.com
 <!--bootstrap-->
 <script src="web/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
+
+@if(Session::has('berhasil'))
+<script>
+        iziToast.success({
+            title: 'OK',
+            message: '{{ session('berhasil') }}',
+            position: 'topRight',
+            transitionIn: 'fadeInUp',
+        });
+</script>
+@endif	
 
 </body>
 
