@@ -85,7 +85,7 @@ class MediaController extends Controller
 
                                 "notification" => [
 
-                                    "title" => '(info)' +$request->judul ,
+                                    "title" => '(info)'.$request->judul ,
 
                                     "body" => $request->deskripsi,
 
