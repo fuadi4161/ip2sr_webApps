@@ -148,8 +148,8 @@ class MediaController extends Controller
             $file = $request->file('file');
             $filename = time() . '.' . $file->getClientOriginalName();
             $avatar = 'https://ip2sr.site/assets/images/news/' . time() . '.' . $file->getClientOriginalName();
-            $file->move('assets/images/news', $filename);
-            File::delete('assets/images/news' . $user->dokumen);
+            $file->move('galery', $filename);
+            File::delete('galery' . $user->dokumen);
         }
 
 
