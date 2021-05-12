@@ -84,9 +84,9 @@
         <div class="row no-gutters masonry">
           @foreach ($galery as $photo)
           <div class="col-lg-3 col-md-4 col-sm-6">
-            <a href="{{url('galery/'. $photo->foto)}}" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
+            <a href="{{url('assets/images/news/'. $photo->foto)}}" class="js-img-viwer d-block" data-caption="Galery ikatan pemuda pemudi ip2sr"
               data-id="lion">
-              <img src="{{url('galery/'. $photo->foto)}}" class="img-fluid radius-image-full" />
+              <img src="{{url('assets/images/news/'. $photo->foto)}}" class="img-fluid radius-image-full" />
               <div class="content-overlay"></div>
               <div class="content-details fadeIn-top">
                 <span class="fa fa-plus" aria-hidden="true"></span>
