@@ -67,6 +67,64 @@ class MediaController extends Controller
             'backgrund_image' => $request->images,
         ]);
 
+        $notifID = DB::table('users')->get();
+
+        $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+
+            // foreach ($notifID as $key) {
+            //     if (!empty($key)) {
+            //         $fcm_key = $key->notif_fcm;
+
+                            $token_1 = "d3T2QDBlRxKRF_7p9lZzH9:APA91bHvfWqyMdjAhreFBDm8rSlnPfMOnKlTJjCvZv2ES0uunUUN-t2nGX98hHLvGotKknM3fzL9AAdCmiR3cs3K-SN56oOR9wWfz0kTAAL_y0JWbo6TwtnTu7E_saWVgN-QhOCDUmK1";
+
+                            $data = [
+
+                                "registration_ids" => [
+                                    $token_1
+                                ],
+
+                                "notification" => [
+
+                                    "title" => '(info)' +$request->judul ,
+
+                                    "body" => $request->deskripsi,
+
+                                    "sound"=> "default" // required for sound on ios
+
+                                ],
+
+                            ];
+
+                            $dataString = json_encode($data);
+
+                            $headers = [
+
+                                'Authorization: key=' . $SERVER_API_KEY,
+
+                                'Content-Type: application/json',
+
+                            ];
+
+                            $ch = curl_init();
+
+                            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+
+                            curl_setopt($ch, CURLOPT_POST, true);
+
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+                            $response = curl_exec($ch);
+
+                            // dd($response);
+            //         }
+            // }
+
         // return response()->json($request);
 
         return back()->with( Session::flash('success', 'berita berhasil ditambahkan.'));
