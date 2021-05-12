@@ -71,11 +71,11 @@ class MediaController extends Controller
 
         $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 
-            // foreach ($notifID as $key) {
-            //     if (!empty($key)) {
-            //         $fcm_key = $key->notif_fcm;
+            foreach ($notifID as $key) {
+                if (!empty($key)) {
+                    $fcm_key = $key->notif_fcm;
 
-                            $token_1 = "d3T2QDBlRxKRF_7p9lZzH9:APA91bHvfWqyMdjAhreFBDm8rSlnPfMOnKlTJjCvZv2ES0uunUUN-t2nGX98hHLvGotKknM3fzL9AAdCmiR3cs3K-SN56oOR9wWfz0kTAAL_y0JWbo6TwtnTu7E_saWVgN-QhOCDUmK1";
+                            $token_1 = $fcm_key;
 
                             $data = [
 
@@ -85,7 +85,7 @@ class MediaController extends Controller
 
                                 "notification" => [
 
-                                    "title" => '(info)'.$request->judul ,
+                                    "title" => '(info) '.$request->judul ,
 
                                     "body" => $request->deskripsi,
 
@@ -120,10 +120,8 @@ class MediaController extends Controller
                             curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
                             $response = curl_exec($ch);
-
-                            // dd($response);
-            //         }
-            // }
+                    }
+            }
 
         // return response()->json($request);
 
