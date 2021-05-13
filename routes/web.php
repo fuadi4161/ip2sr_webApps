@@ -125,7 +125,7 @@ Route::group(
         Route::get('/profil', 'Profil\ProfilUserController@index')->name('super.profil');
         Route::get('/users', 'User\UserController@index')->name('super.users');
         Route::get('/pemuda-user', 'Pemuda\PemudaController@index')->name('super.users-pemuda');
-        Route::get('/wifi-user', 'User_wifi\UserWifiController@index')->name('super.users-wifi');
+        Route::get('/wifi-user', 'User_wifi\UserwifiController@index')->name('super.users-wifi');
         Route::post('/add-user-pemuda', 'Pemuda\PemudaController@store')->name('super.add-user-pemuda');
         Route::get('/user-pemuda/hapus/{user}', 'Pemuda\PemudaController@destroy')->name('super.hapus-user-pemuda');
         Route::post('/add-user-wifi', 'User_wifi\UserwifiController@store')->name('super.add-user-wifi');
