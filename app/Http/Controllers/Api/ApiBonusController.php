@@ -14,6 +14,7 @@ class ApiBonusController extends Controller
 
     public function createBonus( Request $request){
     $bulan = Carbon::now()->isoFormat('MMMM');
+    $notifID = DB::table('users')->get();
 
         DB::table('bonus')
                 ->insert([
@@ -22,6 +23,62 @@ class ApiBonusController extends Controller
                     'bulan' => $bulan,
                     'created_at' => date('Y-m-d'),
                 ]);
+
+            $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+
+            foreach ($notifID as $key) {
+                if (!empty($key)) {
+                    $fcm_key = $key->notif_fcm;
+
+                            $token_1 = $fcm_key;
+
+                            $data = [
+
+                                "registration_ids" => [
+                                    $token_1
+                                ],
+
+                                "notification" => [
+
+                                    "title" => 'Free.. Kecapatan internet 2 Mbops!!!' ,
+
+                                    "body" => 'Hai.. teman-teman ada bonus nih , buruan ambil !!! keburu di ambil anggota lain lhoo',
+
+                                    "sound"=> "default" // required for sound on ios
+
+                                ],
+
+                            ];
+
+                            $dataString = json_encode($data);
+
+                            $headers = [
+
+                                'Authorization: key=' . $SERVER_API_KEY,
+
+                                'Content-Type: application/json',
+
+                            ];
+
+                            $ch = curl_init();
+
+                            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+
+                            curl_setopt($ch, CURLOPT_POST, true);
+
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+                            $response = curl_exec($ch);
+
+                            // dd($response);
+                    }
+            }
                 return response()->json(
                     [
                         'success' => true,
@@ -37,7 +94,7 @@ class ApiBonusController extends Controller
 
     $bulan = Carbon::now()->isoFormat('MMMM');
 
-    $bonus = DB::table('bonus')->where('bulan',$bulan)->get();
+    $bonus = DB::table('bonus')->where('bulan',$bulan)->limit(2)->latest();
 
     return response()->json(
         [
@@ -88,12 +145,16 @@ class ApiBonusController extends Controller
 
         $bulan = Carbon::now()->isoFormat('MMMM');
 
-        $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->get();
+        $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest();
+
+        foreach ( $mybonus as $bon){
+            $bonus = $bon;
+        }
 
         return response()->json(
             [
                 'success' => true,
-                'data' => $mybonus,
+                'data' => $bonus,
                 'pesan' => 'berhasil ambil data',
             ]
         );
