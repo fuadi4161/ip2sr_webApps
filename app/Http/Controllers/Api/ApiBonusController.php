@@ -45,7 +45,8 @@ class ApiBonusController extends Controller
 
     public function claimBonus($id){
         $bulan = Carbon::now()->isoFormat('MMMM');
-        $check = DB::table('bonus')->where([['bulan',$bulan],['user_id', Auth::user->id]])->get();
+
+        $check = DB::table('bonus')->where([['bulan', $bulan],['user_id', Auth::user->id]]);
 
 
         if ( $check->isEmpty()) {
