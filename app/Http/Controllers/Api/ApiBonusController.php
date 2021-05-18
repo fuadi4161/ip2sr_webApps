@@ -24,61 +24,61 @@ class ApiBonusController extends Controller
                     'created_at' => date('Y-m-d'),
                 ]);
 
-            $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+            // $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 
-            foreach ($notifID as $key) {
-                if (!empty($key)) {
-                    $fcm_key = $key->notif_fcm;
+            // foreach ($notifID as $key) {
+            //     if (!empty($key)) {
+            //         $fcm_key = $key->notif_fcm;
 
-                            $token_1 = $fcm_key;
+            //                 $token_1 = $fcm_key;
 
-                            $data = [
+            //                 $data = [
 
-                                "registration_ids" => [
-                                    $token_1
-                                ],
+            //                     "registration_ids" => [
+            //                         $token_1
+            //                     ],
 
-                                "notification" => [
+            //                     "notification" => [
 
-                                    "title" => 'Free.. Kecapatan internet 2 Mbops!!!' ,
+            //                         "title" => 'Free.. Kecapatan internet 2 Mbops!!!' ,
 
-                                    "body" => 'Hai.. teman-teman ada bonus nih , buruan ambil !!! keburu di ambil anggota lain lhoo',
+            //                         "body" => 'Hai.. teman-teman ada bonus nih , buruan ambil !!! keburu di ambil anggota lain lhoo',
 
-                                    "sound"=> "default" // required for sound on ios
+            //                         "sound"=> "default" // required for sound on ios
 
-                                ],
+            //                     ],
 
-                            ];
+            //                 ];
 
-                            $dataString = json_encode($data);
+            //                 $dataString = json_encode($data);
 
-                            $headers = [
+            //                 $headers = [
 
-                                'Authorization: key=' . $SERVER_API_KEY,
+            //                     'Authorization: key=' . $SERVER_API_KEY,
 
-                                'Content-Type: application/json',
+            //                     'Content-Type: application/json',
 
-                            ];
+            //                 ];
 
-                            $ch = curl_init();
+            //                 $ch = curl_init();
 
-                            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+            //                 curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
 
-                            curl_setopt($ch, CURLOPT_POST, true);
+            //                 curl_setopt($ch, CURLOPT_POST, true);
 
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            //                 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            //                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            //                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+            //                 curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
-                            $response = curl_exec($ch);
+            //                 $response = curl_exec($ch);
 
-                            // dd($response);
-                    }
-            }
+            //                 // dd($response);
+            //         }
+            // }
                 return response()->json(
                     [
                         'success' => true,
