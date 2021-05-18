@@ -15,13 +15,19 @@ class ApiBonusController extends Controller
     public function createBonus( Request $request){
     $bulan = Carbon::now()->isoFormat('MMMM');
 
-        DB::table('bonus')->where('id', $id)
+        DB::table('bonus')
                 ->insert([
                     'title' => $request->speed,
                     'deskripsi' => 'ambil bonus untuk menambah kecepatan internet anda. "berlaku sampai akhir bulan $bulan"',
                     'bulan' => $bulan,
                     'updated_at' => date('Y-m-d'),
                 ]);
+                return response()->json(
+                    [
+                        'success' => true,
+                        'pesan' => 'berhasil tambah data',
+                    ]
+                );
 
     }
 
