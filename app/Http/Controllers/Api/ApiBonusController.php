@@ -20,7 +20,7 @@ class ApiBonusController extends Controller
                     'title' => $request->speed,
                     'deskripsi' => 'ambil bonus untuk menambah kecepatan internet anda. "berlaku sampai akhir bulan $bulan"',
                     'bulan' => $bulan,
-                    'updated_at' => date('Y-m-d'),
+                    'created_at' => date('Y-m-d'),
                 ]);
                 return response()->json(
                     [
