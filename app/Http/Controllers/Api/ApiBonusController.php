@@ -18,7 +18,7 @@ class ApiBonusController extends Controller
         DB::table('bonus')
                 ->insert([
                     'title' => $request->speed,
-                    'deskripsi' => 'ambil bonus untuk menambah kecepatan internet anda. "berlaku sampai akhir bulan $bulan"',
+                    'deskripsi' => 'ambil bonus untuk menambah kecepatan internet anda. "berlaku sampai akhir bulan'. $bulan. '"',
                     'bulan' => $bulan,
                     'created_at' => date('Y-m-d'),
                 ]);
