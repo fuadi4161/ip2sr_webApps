@@ -40,5 +40,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/opsi', 'Api\ApiLoginController@IuranOption');
     Route::get('/userscont', 'Api\ApiLoginController@userCount');
     Route::post('/updateProfil', 'Api\ApiProfilController@profile');
+    Route::post('/createBonus', 'Api\ApiBonusController@createBonus');
+    Route::get('/bonus', 'Api\ApiBonusController@getBonus');
+    Route::get('/claimBonus/{id}', 'Api\ApiBonusController@claimBonus');
+    Route::get('/myBonus', 'Api\ApiBonusController@myBonus');
 });
 Route::post('login', 'Api\ApiLoginController@login');
+
+
