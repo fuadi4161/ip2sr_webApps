@@ -158,14 +158,26 @@ class ApiBonusController extends Controller
         $data['deskripsi'] = $deskripsi;
         $data['bulan'] = $bulan;
 
-
-        return response()->json(
+        if ($mybonus == []) {
+            return response()->json(
+            [
+                'success' => true,
+                'pesan' => 'data tidak ada',
+            ],201
+        );
+        } else {
+            return response()->json(
             [
                 'success' => true,
                 'data' => $data,
                 'pesan' => 'berhasil ambil data',
             ]
         );
+        }
+        
+
+
+        
     
     }
 }
