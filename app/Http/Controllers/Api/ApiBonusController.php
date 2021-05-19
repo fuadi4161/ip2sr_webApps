@@ -117,7 +117,7 @@ class ApiBonusController extends Controller
 
         foreach ($users as $key) {
             $status = $key->status;
-
+        }
 
         if ( $check->isEmpty()) {
 
