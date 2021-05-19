@@ -147,7 +147,7 @@ class ApiBonusController extends Controller
 
         $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest()->get();
 
-        if ($mybonus == '[]') {
+        if ($mybonus->isEmpty() {
             return response()->json(
             [
                 'success' => true,
