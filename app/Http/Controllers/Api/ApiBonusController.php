@@ -147,17 +147,6 @@ class ApiBonusController extends Controller
 
         $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest()->get();
 
-        foreach ($mybonus as $value) {
-            $title = $value->title;
-            $deskripsi = $value->deskripsi;
-            $bulan = $value->bulan;
-
-        }
-
-        $data['title'] = $title;
-        $data['deskripsi'] = $deskripsi;
-        $data['bulan'] = $bulan;
-
         if ($mybonus == []) {
             return response()->json(
             [
@@ -166,6 +155,17 @@ class ApiBonusController extends Controller
             ],201
         );
         } else {
+            foreach ($mybonus as $value) {
+            $title = $value->title;
+            $deskripsi = $value->deskripsi;
+            $bulan = $value->bulan;
+
+            }
+
+            $data['title'] = $title;
+            $data['deskripsi'] = $deskripsi;
+            $data['bulan'] = $bulan;
+
             return response()->json(
             [
                 'success' => true,
