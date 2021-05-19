@@ -147,14 +147,12 @@ class ApiBonusController extends Controller
 
         $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest();
 
-        foreach ( $mybonus as $bon){
-            $bonus = $bon;
-        }
+        
 
         return response()->json(
             [
                 'success' => true,
-                'data' => $bonus,
+                'data' => $mybonus,
                 'pesan' => 'berhasil ambil data',
             ]
         );
