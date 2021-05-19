@@ -145,14 +145,16 @@ class ApiBonusController extends Controller
 
         $bulan = Carbon::now()->isoFormat('MMMM');
 
-        $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest();
+        $mybonus = DB::table('bonus')->where([['status', false],['bulan',$bulan],['user_id', Auth::user()->id]])->latest()->get();
 
-        
+        foreach ( $mybonus as $bon){
+            $bonus = $bon;
+        }
 
         return response()->json(
             [
                 'success' => true,
-                'data' => $mybonus,
+                'data' => $bonus,
                 'pesan' => 'berhasil ambil data',
             ]
         );
