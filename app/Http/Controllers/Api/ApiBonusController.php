@@ -149,9 +149,14 @@ class ApiBonusController extends Controller
 
         if ($mybonus->isEmpty() ){
 
+            $data['title'] = '0';
+            $data['deskripsi'] = '0';
+            $data['bulan'] = '0';
+
             return response()->json(
             [
                 'success' => true,
+                'data' => $data,
                 'pesan' => 'data tidak ada',
             ],201
         );
