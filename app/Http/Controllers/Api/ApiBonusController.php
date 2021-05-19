@@ -94,7 +94,7 @@ class ApiBonusController extends Controller
 
     $bulan = Carbon::now()->isoFormat('MMMM');
 
-    $bonus = DB::table('bonus')->where([['bulan',$bulan],['status', true]])->orderBy('id', 'DESC')->get();
+    $bonus = DB::table('bonus')->where('bulan',$bulan)->orderBy('id', 'DESC')->get();
 
     return response()->json(
         [
