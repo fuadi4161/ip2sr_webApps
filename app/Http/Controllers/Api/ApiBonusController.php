@@ -40,7 +40,7 @@ class ApiBonusController extends Controller
 
             //                     "notification" => [
 
-            //                         "title" => 'Free.. Kecapatan internet 2 Mbops!!!' ,
+            //                         "title" => 'Free.. Kecapatan internet '.$request->speed. ' Mbops!!!' ,
 
             //                         "body" => 'Hai.. teman-teman ada bonus nih , buruan ambil !!! keburu di ambil anggota lain lhoo',
 
@@ -113,9 +113,23 @@ class ApiBonusController extends Controller
 
         $check = DB::table('bonus')->where([['bulan', $bulan],['user_id', $user]])->get();
 
+        $users = DB::table('posision_users')->where('user_id' , $user)->get();
+
+        foreach ($users as $key) {
+            $status = $key->status;
+
 
         if ( $check->isEmpty()) {
-            DB::table('bonus')->where('id', $id)
+
+            if ($status == false) {
+                return response()->json(
+                    [
+                        'success' => true,
+                        'pesan' => 'Anda belum melakukan iuran',
+                    ],202
+                );
+            } else {
+                DB::table('bonus')->where('id', $id)
                 ->update([
                     'claim' => Auth::user()->name,
                     'user_id' => Auth::user()->id,
@@ -129,6 +143,9 @@ class ApiBonusController extends Controller
                         'pesan' => 'berhasil claim bonus',
                     ]
                 );
+            }
+            
+            
         } else {
             return response()->json(
                 [
