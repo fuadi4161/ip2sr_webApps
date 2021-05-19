@@ -21,7 +21,7 @@ class ApiBonusController extends Controller
                     'title' => $request->speed,
                     'deskripsi' => 'ambil bonus untuk menambah kecepatan internet anda. "berlaku sampai akhir bulan '. $bulan. '"',
                     'bulan' => $bulan,
-                    'created_at' => date('Y-m-d'),
+                    'created_at' => date('Y-m-d H:i:s'),
                 ]);
 
             // $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
@@ -94,7 +94,7 @@ class ApiBonusController extends Controller
 
     $bulan = Carbon::now()->isoFormat('MMMM');
 
-    $bonus = DB::table('bonus')->where('bulan',$bulan)->orderBy('id', 'DESC')->limit(2)->get();
+    $bonus = DB::table('bonus')->where([['bulan',$bulan],['status', true]])->orderBy('id', 'DESC')->get();
 
     return response()->json(
         [
@@ -120,7 +120,7 @@ class ApiBonusController extends Controller
                     'claim' => Auth::user()->name,
                     'user_id' => Auth::user()->id,
                     'status' => false,
-                    'updated_at' => date('Y-m-d'),
+                    'updated_at' => date('Y-m-d H:i:s'),
                 ]);
 
                 return response()->json(
