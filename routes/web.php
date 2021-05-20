@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -268,6 +269,66 @@ Route::group(
 Route::group(
     ['prefix' => 'admin-wifi', 'middleware' => ['role:admin-wifi']],
     function () {
+
+        Route::get('/update', function () {
+            $notifID = DB::table('users')->get();
+
+            $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+
+            foreach ($notifID as $key) {
+                if (!empty($key)) {
+                    $fcm_key = $key->notif_fcm;
+
+                            $token_1 = $fcm_key;
+
+                            $data = [
+
+                                "registration_ids" => [
+                                    $token_1
+                                ],
+
+                                "notification" => [
+
+                                    "title" => 'Update aplikasi' ,
+
+                                    "body" => 'Di versi terbaru ada fitur bonus , anda dapat mengambil salah satu bonus yang ada. "Siapa Cepat dia dapat!"',
+
+                                    "sound"=> "default" // required for sound on ios
+
+                                ],
+
+                            ];
+
+                            $dataString = json_encode($data);
+
+                            $headers = [
+
+                                'Authorization: key=' . $SERVER_API_KEY,
+
+                                'Content-Type: application/json',
+
+                            ];
+
+                            $ch = curl_init();
+
+                            curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+
+                            curl_setopt($ch, CURLOPT_POST, true);
+
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+                            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                            curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+                            $response = curl_exec($ch);
+
+                            // dd($response);
+                    }
+            }
+        });
 
         Route::get('/', 'Admin_wifi\AdminwifiController@index')->name('admin-wifi.dashboard');
         Route::patch('/detail-profil/{id}', 'Profil\ProfilUserController@detailprofil')->name('admin-wifi.detail-profil');
