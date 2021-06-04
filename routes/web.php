@@ -42,8 +42,8 @@ Route::get('mail', function () {
         // });
     
         \Mail::to('fuadznice@gmail.com')->send(new \App\Mail\NewUserNotification($detail));
-        \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\InvoicePaid($detail));
-        \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\NotifBonus($detail));
+        \Mail::to("fuadznice@gmail.com")->send(new \App\Mail\InvoicePaid($detail));
+        \Mail::to("fuadznice@gmail.com")->send(new \App\Mail\NotifBonus($detail));
     
         dd("success");
     
