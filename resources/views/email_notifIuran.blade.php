@@ -1,6 +1,4 @@
 @component('mail::message')
-    # Registrasi For Apps
-
     Hai.. Assalamualikum..
     Alhamdulillah... gak kerasa sudah awal bulan lagi.. oiya jangan sampai wifi off karena lupa bayar tagihan listrik yaa. 😁 
     
