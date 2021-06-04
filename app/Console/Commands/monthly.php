@@ -7,6 +7,9 @@ use Telegram\Bot\Laravel\Facades\Telegram;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoicePaid;
+
 class monthly extends Command
 {
     /**
@@ -83,6 +86,8 @@ class monthly extends Command
 
         // }
 
+        
+
         DB::table('notifikasi')
             ->insert([
                 'user_id' => $chat->user_id,
@@ -105,6 +110,14 @@ class monthly extends Command
             foreach ($notifID as $key) {
                 if (!empty($key)) {
                     $fcm_key = $key->notif_fcm;
+                    $email = $key->email;
+
+                    $detail = [
+                        'name' => 'Fuadz',
+                        'info' => 'Laravel & Python Devloper'
+                    ];
+            
+                    \Mail::to($email)->send(new \App\Mail\InvoicePaid($detail));
 
                             $token_1 = $fcm_key;
 

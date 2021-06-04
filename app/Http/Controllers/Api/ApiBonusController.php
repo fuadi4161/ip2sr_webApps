@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotifBonus;
+
 class ApiBonusController extends Controller
 {
 
@@ -51,8 +54,16 @@ class ApiBonusController extends Controller
             foreach ($notifID as $key) {
                 if (!empty($key)) {
                     $fcm_key = $key->notif_fcm;
+                    $email = $key->email;
 
                             $token_1 = $fcm_key;
+
+                            $detail = [
+                                'name' => 'Fuadz',
+                                'info' => 'Laravel & Python Devloper'
+                            ];
+
+                            \Mail::to($email)->send(new \App\Mail\NotifBonus($detail));
 
                             $data = [
 
