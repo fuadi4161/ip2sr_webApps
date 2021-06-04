@@ -62,7 +62,7 @@ Route::get('mail', function () {
 Route::get('notifikasi', function () {
 
     $detail = [
-        'name' => $request->name,
+        'name' => 'Fuadz',
         'info' => 'Laravel & Python Devloper'
     ];
 
