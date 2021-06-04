@@ -73,7 +73,7 @@ class ApiBonusController extends Controller
 
                                 "notification" => [
 
-                                    "title" => 'Free.. Kecapatan internet '.$request->speed. ' Mbops!!!' ,
+                                    "title" => 'Free.. Kecapatan internet '.$request->speed. ' Mbps!!!' ,
 
                                     "body" => 'Hai.. teman-teman ada bonus nih , buruan ambil !!! keburu di ambil anggota lain lhoo',
 
