@@ -26,25 +26,25 @@ class ApiBonusController extends Controller
                 'created_at' => date('Y-m-d H:i:s'),
             ]);
 
-                foreach ($chatID as $chat) {
-                    if (!empty($chat)) {
-                    $username = $chat->nama;
-                    $text = " Haii... $username  \n"
-                        . "\n"
-                        . "Fuadz telah menambahkan bonus di bulan ini.\n"
-                        . "Buruan buka aplikasi sebelum di claim anggota lain. \n";
+                // foreach ($chatID as $chat) {
+                //     if (!empty($chat->telegram)) {
+                //     $username = $chat->nama;
+                //     $text = " Haii... $username  \n"
+                //         . "\n"
+                //         . "Fuadz telah menambahkan bonus di bulan ini.\n"
+                //         . "Buruan buka aplikasi sebelum di claim anggota lain. \n";
         
-                    $id = (int)$chat->telegram;
+                //     $id = (int)$chat->telegram;
         
-                    Telegram::sendMessage([
-                        'chat_id' => $id,
-                        'parse_mode' => 'HTML',
-                        'text' => $text
-                    ]);
+                //     Telegram::sendMessage([
+                //         'chat_id' => $id,
+                //         'parse_mode' => 'HTML',
+                //         'text' => $text
+                //     ]);
                     
-                    }
+                //     }
         
-                }
+                // }
 
             $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 

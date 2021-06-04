@@ -46,32 +46,44 @@ class monthly extends Command
         
         
         //Sesi Notifikasi Telegram
-        foreach ($chatID as $chat) {
-            if (!empty($chat)) {
-            $username = $chat->nama;
-            $text = "Assalamualaikum. \n"
-                . "\n"
-                . "Selamat Malam \n"
-                . "\n"
-                . "\n"
-                . "<b>Untuk iuran wifi bulan $bulan terakhir tanggal 5 nggih.. maximal sampai tanggal 10.</b>\n"
-                . "\n"
-                . "bisa sama mas Dimas, bisa juga langsung ke mas Fuadi atau juga bisa transfer,\n"
-                . "untuk nomor rekening ada di deskripsi group.\n"
-                . "\n"
-                . "\n"
-                . "terimakasih 🙏\n"
-                . "\n"
-                . "wasalamualaikum.\n";
+        // foreach ($chatID as $chat) {
+        //     if (!empty($chat)) {
+        //     $username = $chat->nama;
+        //     $text = "Assalamualaikum. \n"
+        //         . "\n"
+        //         . "Selamat Malam \n"
+        //         . "\n"
+        //         . "\n"
+        //         . "<b>Untuk iuran wifi bulan $bulan terakhir tanggal 5 nggih.. maximal sampai tanggal 10.</b>\n"
+        //         . "\n"
+        //         . "bisa sama mas Dimas, bisa juga langsung ke mas Fuadi atau juga bisa transfer,\n"
+        //         . "untuk nomor rekening ada di deskripsi group.\n"
+        //         . "\n"
+        //         . "\n"
+        //         . "terimakasih 🙏\n"
+        //         . "\n"
+        //         . "wasalamualaikum.\n";
 
-            $id = (int)$chat->telegram;
+        //     $id = (int)$chat->telegram;
 
-            Telegram::sendMessage([
-                'chat_id' => $id,
-                'parse_mode' => 'HTML',
-                'text' => $text
-            ]);
-            DB::table('notifikasi')
+        //     Telegram::sendMessage([
+        //         'chat_id' => $id,
+        //         'parse_mode' => 'HTML',
+        //         'text' => $text
+        //     ]);
+        //     DB::table('notifikasi')
+        //     ->insert([
+        //         'user_id' => $chat->user_id,
+        //         'judul' => "Hai.. Assalamualikum.. ",
+        //         'deskripsi' => "Alhamdulillah... gak kerasa sudah awal bulan lagi.. oiya jangan sampai wifi off karena lupa bayar tagihan listrik yaa. :D",
+        //         'date' => Carbon::now()->format('d-M-Y'),
+        //         'status' => false,
+        //     ]);
+        //     }
+
+        // }
+
+        DB::table('notifikasi')
             ->insert([
                 'user_id' => $chat->user_id,
                 'judul' => "Hai.. Assalamualikum.. ",
@@ -79,9 +91,6 @@ class monthly extends Command
                 'date' => Carbon::now()->format('d-M-Y'),
                 'status' => false,
             ]);
-            }
-
-        }
         
         //Sesi Notifikasi Aplikasi
             

@@ -59,60 +59,68 @@ Route::get('mail', function () {
 //             'text' => $text
 //         ]);
 });
-// Route::get('notifikasi', function () {
+Route::get('notifikasi', function () {
 
-//     $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
+    $detail = [
+        'name' => $request->name,
+        'info' => 'Laravel & Python Devloper'
+    ];
 
-//     $token_1 = 'dWHF6jCtRmqMPKiYxmbjvs:APA91bGuLasc13vhD7lTrkBt8sbBnEDuvQoZSHdYXPuRVcSsdlRhbA7rttO7BQtZ49iUaxBZCBAtd-qPSn72pcJSwU76BiV2c15O8CZchEf3HLO3eZpTuPVAnfLMSMrr6JRU4Th5Alq6';
+    \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\InvoicePaid($detail));
+    \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\NotifBonus($detail));
 
-//     $data = [
+    // $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 
-//         "registration_ids" => [
-//             $token_1
-//         ],
+    // $token_1 = 'dWHF6jCtRmqMPKiYxmbjvs:APA91bGuLasc13vhD7lTrkBt8sbBnEDuvQoZSHdYXPuRVcSsdlRhbA7rttO7BQtZ49iUaxBZCBAtd-qPSn72pcJSwU76BiV2c15O8CZchEf3HLO3eZpTuPVAnfLMSMrr6JRU4Th5Alq6';
 
-//         "notification" => [
+    // $data = [
 
-//             "title" => 'Terima kasih..',
+    //     "registration_ids" => [
+    //         $token_1
+    //     ],
 
-//             "body" => 'Iuran Anda Sudah di konfirmasi',
+    //     "notification" => [
 
-//             "image" => 'https://i.pinimg.com/564x/ba/0b/0e/ba0b0eac27f6f88a70c084df11c52eab.jpg',
+    //         "title" => 'Terima kasih..',
 
-//             "sound" => 'stoneSkimingDay4', // required for sound on ios
+    //         "body" => 'Iuran Anda Sudah di konfirmasi',
 
-//         ],
+    //         "image" => 'https://i.pinimg.com/564x/ba/0b/0e/ba0b0eac27f6f88a70c084df11c52eab.jpg',
 
-//     ];
+    //         "sound" => 'stoneSkimingDay4', // required for sound on ios
 
-//     $dataString = json_encode($data);
+    //     ],
 
-//     $headers = [
+    // ];
 
-//         'Authorization: key=' . $SERVER_API_KEY,
+    // $dataString = json_encode($data);
 
-//         'Content-Type: application/json',
+    // $headers = [
 
-//     ];
+    //     'Authorization: key=' . $SERVER_API_KEY,
 
-//     $ch = curl_init();
+    //     'Content-Type: application/json',
 
-//     curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+    // ];
 
-//     curl_setopt($ch, CURLOPT_POST, true);
+    // $ch = curl_init();
 
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    // curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
 
-//     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_POST, true);
 
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-//     $response = curl_exec($ch);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-//     dd($response);
-// });
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+    // $response = curl_exec($ch);
+
+    // dd($response);
+});
 
 
 
