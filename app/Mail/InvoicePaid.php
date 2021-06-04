@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotifBonus extends Notification
+class InvoicePaid extends Notification
 {
     use Queueable, SerializesModels;
 
@@ -32,6 +32,6 @@ class NotifBonus extends Notification
         // return $this->subject('Mail from Pemuda IP2SR')
         // ->view('email');
 
-        return $this->markdown('email_notifBonus');
+        return $this->markdown('email_notifIuran');
     }
 }

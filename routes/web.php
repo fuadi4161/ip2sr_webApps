@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
-use App\Notifications\InvoicePaid;
-use App\Notifications\NotifBonus;
+use App\Mail\InvoicePaid;
+use App\Mail\NotifBonus;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -32,7 +32,7 @@ Route::get('mail', function () {
     
 
     $detail = [
-            'name' => 'Harsukh Makwana',
+            'name' => 'Fuadz',
             'info' => 'Laravel & Python Devloper'
         ];
 
