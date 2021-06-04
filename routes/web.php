@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUserNotification;
+use App\Notifications\InvoicePaid;
+use App\Notifications\NotifBonus;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -40,6 +42,8 @@ Route::get('mail', function () {
         // });
     
         \Mail::to('fuadznice@gmail.com')->send(new \App\Mail\NewUserNotification($detail));
+        \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\InvoicePaid($detail));
+        \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\NotifBonus($detail));
     
         dd("success");
     
@@ -59,15 +63,15 @@ Route::get('mail', function () {
 //             'text' => $text
 //         ]);
 });
-Route::get('notifikasi', function () {
+// Route::get('notifikasi', function () {
 
-    $detail = [
-        'name' => 'Fuadz',
-        'info' => 'Laravel & Python Devloper'
-    ];
+//     $detail = [
+//         'name' => 'Fuadz',
+//         'info' => 'Laravel & Python Devloper'
+//     ];
 
-    \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\InvoicePaid($detail));
-    \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\NotifBonus($detail));
+//     \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\InvoicePaid($detail));
+//     \Mail::to("fuadznice@gmail.com")->send(new \App\Notifications\NotifBonus($detail));
 
     // $SERVER_API_KEY = 'AAAAXwc3hQ0:APA91bGWHOSNXP2oxdwLGq7e6tLx9H7IY4cFkPBuZzIRaqTMzZo5EDdyUlC6_TCgrtwasgfQUmArnLOJe-wqoAY0yn02Dpu_sjPORMT7KLFcRxF0FtQRiCHo87afnXOTwWixOb2OFezM';
 
@@ -120,7 +124,7 @@ Route::get('notifikasi', function () {
     // $response = curl_exec($ch);
 
     // dd($response);
-});
+// });
 
 
 
