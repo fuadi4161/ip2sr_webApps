@@ -44,12 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="col" style="overflow-y:scroll; height:250px">
-                                <!-- @foreach ($media as $medias)
                                 
-                                <div class="ig-image">
-                                    <img src="{{$medias}}">
-                                </div>
-                                @endforeach -->
                             </div>
                         </div> 
                 </div>
