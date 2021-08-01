@@ -28,7 +28,7 @@ class HomeController extends Controller
         $postIGimage = Http::get('https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
         $postcount = Http::get('https://graph.instagram.com/me?fields=id,username,media_count&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
        
-        $count = $postcount['media_count'];
+        // $count = $postcount['media_count'];
         $username = $postcount['username'];
         $media = [];
 
