@@ -25,16 +25,16 @@ class HomeController extends Controller
     public function index()
     {
         //Instagram API
-        $postIGimage = Http::get('https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
-        $postcount = Http::get('https://graph.instagram.com/me?fields=id,username,media_count&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
+        // $postIGimage = Http::get('https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,username,timestamp&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
+        // $postcount = Http::get('https://graph.instagram.com/me?fields=id,username,media_count&access_token=IGQVJXV2N2VDktLVViUUREcnpTb3hYT0pvelVzWDhsSGg5Y3ktNHFpbnlWUmM0em9aSTZABbzIwc2FmdndzYXVMODl0X01FaEVTRTNma29TazFDUHp6bUxKUHhTS2p4c3R0bUpDamdzOHUyOU14MmNITQZDZD');
        
-        // $count = $postcount['media_count'];
-        $username = $postcount['username'];
-        $media = [];
+        // // $count = $postcount['media_count'];
+        // $username = $postcount['username'];
+        // $media = [];
 
-        foreach( $postIGimage['data'] as $images){
-            $media[] = $images['media_url'];
-        }
+        // foreach( $postIGimage['data'] as $images){
+        //     $media[] = $images['media_url'];
+        // }
 
 
 
@@ -56,7 +56,7 @@ class HomeController extends Controller
         $organisasi = DB::table('organisasi')->get();
 
         // return response()->json($eventdetail);
-        return view('welcome', compact('media','username','vidiocount','title','agenda','galery', 'event','eventdetail', 'moto','organisasi', 'response', 'vidioid','vidioImage'));
+        return view('welcome', compact('vidiocount','title','agenda','galery', 'event','eventdetail', 'moto','organisasi', 'response', 'vidioid','vidioImage'));
     }
     public function contact()
     {

@@ -39,17 +39,17 @@
                         </div>
                         <div class="col-lg-7 col">
                             <h4><a href="https://www.instagram.com/ip2sr.01/" class="text-left text-media2">Instagram</a></h4>
-                            <p>{{$username}}</p>
+                            <p>Ip2sr.01</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col" style="overflow-y:scroll; height:250px">
-                                @foreach ($media as $medias)
+                                <!-- @foreach ($media as $medias)
                                 
                                 <div class="ig-image">
                                     <img src="{{$medias}}">
                                 </div>
-                                @endforeach
+                                @endforeach -->
                             </div>
                         </div> 
                 </div>
